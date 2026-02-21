@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { 
-    Pickaxe, Smartphone, ScanEye, Search, Gavel, Cpu, 
-    ShieldAlert, Database, Map, CheckCircle, XCircle, 
-    Lock, Shield, Eye, FileText, Check, X, 
+import {
+    Pickaxe, Smartphone, ScanEye, Search, Gavel, Cpu,
+    ShieldAlert, Database, Map, CheckCircle, XCircle,
+    Lock, Shield, Eye, FileText, Check, X,
     ArrowRight, User, Server, Key, Box,
     AlertTriangle, FileKey, Globe, Wallet, RefreshCw,
     Play, LockKeyhole, Coins, Binary, Network, Fingerprint,
@@ -64,27 +64,27 @@ const GameIntro: React.FC<{
         <div className="bg-gray-800/50 p-6 rounded-2xl border border-gray-700 max-w-lg w-full backdrop-blur-sm shadow-xl">
             <div className="flex justify-center mb-6">
                 <div className="w-20 h-20 bg-zcash/10 rounded-full flex items-center justify-center border-2 border-zcash shadow-[0_0_30px_rgba(244,183,40,0.2)]">
-                    <FileText size={40} className="text-zcash"/>
+                    <FileText size={40} className="text-zcash" />
                 </div>
             </div>
             <h3 className="text-2xl font-black text-white mb-2 tracking-tight">{mission}</h3>
-            
+
             <div className="text-right space-y-4 bg-black/20 p-4 rounded-xl border border-gray-700/50 mt-6">
                 <div>
-                    <span className="text-xs text-blue-400 font-bold uppercase tracking-wider flex items-center gap-2 mb-1"><User size={12}/> الدور (Role)</span>
+                    <span className="text-xs text-blue-400 font-bold uppercase tracking-wider flex items-center gap-2 mb-1"><User size={12} /> الدور (Role)</span>
                     <p className="text-gray-300 text-sm leading-relaxed">{roleDescription}</p>
                 </div>
                 <div>
-                    <span className="text-xs text-green-400 font-bold uppercase tracking-wider flex items-center gap-2 mb-1"><CheckCircle size={12}/> الهدف (Objective)</span>
+                    <span className="text-xs text-green-400 font-bold uppercase tracking-wider flex items-center gap-2 mb-1"><CheckCircle size={12} /> الهدف (Objective)</span>
                     <p className="text-white font-bold text-sm">{objective}</p>
                 </div>
             </div>
         </div>
-        <button 
-            onClick={onStart} 
+        <button
+            onClick={onStart}
             className="group relative px-10 py-4 bg-zcash hover:bg-white text-black font-black text-lg uppercase tracking-widest rounded-xl transition-all transform hover:-translate-y-1 shadow-[0_5px_0_rgb(180,130,0)] hover:shadow-[0_5px_0_rgb(200,200,200)] active:translate-y-0 active:shadow-none w-full max-w-xs"
         >
-            <span className="flex items-center justify-center gap-2">ابدأ المهمة <Play size={20} className="fill-current"/></span>
+            <span className="flex items-center justify-center gap-2">ابدأ المهمة <Play size={20} className="fill-current" /></span>
         </button>
         {!userName && <p className="text-xs text-gray-500">أنت تلعب كضيف. لن يتم حفظ نتيجتك في لوحة الصدارة.</p>}
     </div>
@@ -102,20 +102,20 @@ const GameResult: React.FC<{
 }> = ({ status, title, desc, lesson, score, onAction, actionText, isCompleted }) => (
     <div className="flex flex-col items-center justify-center h-full text-center space-y-6 animate-fadeIn">
         <div className="relative">
-             <div className={`absolute inset-0 blur-3xl opacity-30 ${status === 'success' ? 'bg-green-500' : 'bg-red-500'}`}></div>
-             <div className={`w-24 h-24 bg-gray-900 rounded-full flex items-center justify-center border-4 relative z-10 ${status === 'success' ? 'border-green-500 text-green-500' : 'border-red-500 text-red-500'}`}>
-                {status === 'success' ? <CheckCircle size={60}/> : <XCircle size={60}/>}
-             </div>
+            <div className={`absolute inset-0 blur-3xl opacity-30 ${status === 'success' ? 'bg-green-500' : 'bg-red-500'}`}></div>
+            <div className={`w-24 h-24 bg-gray-900 rounded-full flex items-center justify-center border-4 relative z-10 ${status === 'success' ? 'border-green-500 text-green-500' : 'border-red-500 text-red-500'}`}>
+                {status === 'success' ? <CheckCircle size={60} /> : <XCircle size={60} />}
+            </div>
         </div>
-        
+
         <h2 className="text-3xl font-black text-white">{title}</h2>
-        
+
         <div className="bg-gray-800/80 p-6 rounded-xl border border-gray-600 w-full max-w-md backdrop-blur-md">
             <p className="text-gray-200 mb-6 text-lg leading-relaxed">{desc}</p>
-            
+
             <div className={`p-4 rounded-lg border-r-4 text-right ${status === 'success' ? 'bg-green-900/20 border-green-500' : 'bg-red-900/20 border-red-500'}`}>
                 <h4 className={`font-bold text-sm mb-1 flex items-center gap-2 ${status === 'success' ? 'text-green-400' : 'text-red-400'}`}>
-                    <HelpCircle size={16}/> {status === 'success' ? 'الدرس المستفاد' : 'لماذا فشلت؟'}
+                    <HelpCircle size={16} /> {status === 'success' ? 'الدرس المستفاد' : 'لماذا فشلت؟'}
                 </h4>
                 <p className="text-sm text-gray-300">{lesson}</p>
             </div>
@@ -134,7 +134,7 @@ const GameResult: React.FC<{
         </div>
 
         <button onClick={onAction} className={`px-8 py-3 rounded-full font-bold transition flex items-center gap-2 ${status === 'success' ? 'bg-gray-700 hover:bg-gray-600 text-white' : 'bg-red-600 hover:bg-red-500 text-white'}`}>
-            {actionText} {status === 'success' ? <ArrowRight size={18} className="rotate-180"/> : <RefreshCw size={18}/>}
+            {actionText} {status === 'success' ? <ArrowRight size={18} className="rotate-180" /> : <RefreshCw size={18} />}
         </button>
     </div>
 );
@@ -154,7 +154,7 @@ const InfoBox: React.FC<{ title: string; points: string[] }> = ({ title, points 
 // --- GAME 1: MINER (UPDATED) ---
 const MinerGame: React.FC<{ onComplete: (s: number, id: string) => void, onExit: () => void, isCompleted?: boolean, userName?: string }> = ({ onComplete, onExit, isCompleted, userName }) => {
     const [state, setState] = useState<'intro' | 'scanning' | 'analysis' | 'mining' | 'result'>('intro');
-    const [result, setResult] = useState<{status: 'success'|'fail', title:string, msg:string, lesson:string}>({status:'fail', title:'', msg:'', lesson:''});
+    const [result, setResult] = useState<{ status: 'success' | 'fail', title: string, msg: string, lesson: string }>({ status: 'fail', title: '', msg: '', lesson: '' });
     const [dialogue, setDialogue] = useState<string>("");
 
     const handleMine = (choice: number) => {
@@ -187,11 +187,11 @@ const MinerGame: React.FC<{ onComplete: (s: number, id: string) => void, onExit:
     };
 
     return (
-        <StoryContainer title="مهمة: تشغيل العقدة (Miner Node)" role="Node Operator" icon={<Pickaxe className="text-yellow-500"/>} onExit={onExit} userName={userName}>
+        <StoryContainer title="مهمة: تشغيل العقدة (Miner Node)" role="Node Operator" icon={<Pickaxe className="text-yellow-500" />} onExit={onExit} userName={userName}>
             {state === 'intro' && (
-                <GameIntro 
+                <GameIntro
                     mission="معالجة المعاملات"
-roleDescription=" أنت تدير عقدة كاملة تقوم بالتعدين (Miner Node). 
+                    roleDescription=" أنت تدير عقدة كاملة تقوم بالتعدين (Miner Node). 
 في شبكة Zcash توجد عقد تحقق فقط (Full Nodes)، وهذه العقدة تحديدًا تشارك في التعدين وبناء البلوكات. 
 "                    objective="ستصلك 3 مجموعات من البيانات. قم بتحليلها واختر المجموعة الأنسب لإضافتها للبلوك القادم لتحقيق أفضل أداء وعائد."
                     onStart={() => {
@@ -202,7 +202,7 @@ roleDescription=" أنت تدير عقدة كاملة تقوم بالتعدين 
                     userName={userName}
                 />
             )}
-            
+
             {state === 'scanning' && (
                 <div className="flex flex-col h-full justify-center items-center text-center space-y-6 animate-fadeIn">
                     <div className="w-16 h-16 border-4 border-t-yellow-500 border-gray-700 rounded-full animate-spin"></div>
@@ -216,7 +216,7 @@ roleDescription=" أنت تدير عقدة كاملة تقوم بالتعدين 
             {state === 'analysis' && (
                 <div className="space-y-4">
                     <h3 className="text-white font-bold text-center mb-4">اختر حزمة البيانات للمعالجة:</h3>
-                    
+
                     <button onClick={() => handleMine(1)} className="w-full text-right p-4 bg-gray-800 border border-gray-600 hover:border-blue-400 rounded-xl group transition-all">
                         <div className="flex justify-between items-center mb-1">
                             <span className="font-bold text-blue-400">الخيار A: تحويلات بسيطة (Transparent)</span>
@@ -245,7 +245,7 @@ roleDescription=" أنت تدير عقدة كاملة تقوم بالتعدين 
 
             {state === 'mining' && (
                 <div className="flex flex-col items-center justify-center h-full text-center">
-                    <Cpu size={80} className="text-yellow-500 animate-pulse mb-4"/>
+                    <Cpu size={80} className="text-yellow-500 animate-pulse mb-4" />
                     <h3 className="text-2xl font-bold text-white mb-2">جاري المعالجة...</h3>
                     <div className="font-mono text-xs text-gray-500 space-y-1">
                         <p>Hash: 000000000019d6689c085ae165831e93...</p>
@@ -256,7 +256,7 @@ roleDescription=" أنت تدير عقدة كاملة تقوم بالتعدين 
             )}
 
             {state === 'result' && (
-                <GameResult 
+                <GameResult
                     status={result.status}
                     title={result.title}
                     desc={result.msg}
@@ -280,7 +280,7 @@ const SenderGame: React.FC<{ onComplete: (s: number, id: string) => void, onExit
     const [privacyScore, setPrivacyScore] = useState(0);
     const [usabilityScore, setUsabilityScore] = useState(0);
 
-    const [lastInfo, setLastInfo] = useState<{title: string; points: string[]} | null>(null);
+    const [lastInfo, setLastInfo] = useState<{ title: string; points: string[] } | null>(null);
     const [finalStatus, setFinalStatus] = useState<'success' | 'fail'>('success');
     const [finalDesc, setFinalDesc] = useState('');
     const [finalLesson, setFinalLesson] = useState('');
@@ -322,7 +322,7 @@ const SenderGame: React.FC<{ onComplete: (s: number, id: string) => void, onExit
                     title: "ملاحظات مفصلة",
                     points: [
                         "في المعاملات المحمية، المذكرة مشفرة (Encrypted Memo).",
-                        "لكن الخطر يكمن في مشاركتك لمفتاح المشاهدة لاحقاً، حيث قد تظهر هذه التفاصيل في حال مشاركة مفتاح المشادة.",                         "تجنّب وضع بيانات شديدة الحساسية إلا للضرورة القصوى."
+                        "لكن الخطر يكمن في مشاركتك لمفتاح المشاهدة لاحقاً، حيث قد تظهر هذه التفاصيل في حال مشاركة مفتاح المشادة.", "تجنّب وضع بيانات شديدة الحساسية إلا للضرورة القصوى."
                     ]
                 });
             } else if (choiceId === 'memo-min') {
@@ -408,9 +408,9 @@ const SenderGame: React.FC<{ onComplete: (s: number, id: string) => void, onExit
     }, [step, riskLevel, privacyScore, usabilityScore]);
 
     return (
-        <StoryContainer title="مهمة: التحويل الآمن المتقدم" role="Sender" icon={<Smartphone className="text-blue-500"/>} onExit={onExit} userName={userName}>
-             {step === 0 && (
-                <GameIntro 
+        <StoryContainer title="مهمة: التحويل الآمن المتقدم" role="Sender" icon={<Smartphone className="text-blue-500" />} onExit={onExit} userName={userName}>
+            {step === 0 && (
+                <GameIntro
                     mission="إعداد عملية دفع"
                     roleDescription="أنت تضبط إعدادات الدفع في تطبيق محفظة يدعم Zcash. الهدف هو اختيار إعدادات مناسبة لخصوصية المستخدم وسهولة الاستخدام."
                     objective="ستمر على 3 مشاهد متتابعة. اختر الإعدادات التي توفر أعلى درجات الخصوصية والأمان مع الحفاظ على سهولة الاستخدام."
@@ -428,7 +428,7 @@ const SenderGame: React.FC<{ onComplete: (s: number, id: string) => void, onExit
                     </p>
 
                     <button onClick={() => applyChoice('t-address')} className="bg-gray-800 hover:bg-red-900/20 border border-gray-600 hover:border-red-500 p-4 rounded-xl flex items-center gap-4 transition group text-right">
-                        <Globe size={28} className="text-gray-500 group-hover:text-red-400"/>
+                        <Globe size={28} className="text-gray-500 group-hover:text-red-400" />
                         <div>
                             <h4 className="font-bold text-white">عنوان شفاف (Transparent Address)</h4>
                             <p className="text-xs text-gray-400">تظهر تفاصيل الإرسال بالكامل في السجل العام (Public Blockchain).</p>
@@ -436,7 +436,7 @@ const SenderGame: React.FC<{ onComplete: (s: number, id: string) => void, onExit
                     </button>
 
                     <button onClick={() => applyChoice('z-address')} className="bg-gray-800 hover:bg-green-900/20 border border-gray-600 hover:border-green-500 p-4 rounded-xl flex items-center gap-4 transition group text-right">
-                        <Shield size={28} className="text-gray-500 group-hover:text-green-400"/>
+                        <Shield size={28} className="text-gray-500 group-hover:text-green-400" />
                         <div>
                             <h4 className="font-bold text-white">عنوان محمي (Shielded Address)</h4>
                             <p className="text-xs text-gray-400">يخفي البيانات (المرسل، المستلم، المبلغ) باستخدام التشفير.</p>
@@ -492,7 +492,7 @@ const SenderGame: React.FC<{ onComplete: (s: number, id: string) => void, onExit
             )}
 
             {step === 4 && (
-                <GameResult 
+                <GameResult
                     status={finalStatus}
                     title={finalStatus === 'success' ? "إعداد متوازن" : "تحتاج لتحسين الإعدادات"}
                     desc={finalDesc}
@@ -513,9 +513,9 @@ const ReceiverGame: React.FC<{ onComplete: (s: number, id: string) => void, onEx
     const [choice, setChoice] = useState<'private' | 'viewing' | 'image'>('image');
 
     return (
-        <StoryContainer title="مهمة: التدقيق المالي" role="Merchant" icon={<Eye className="text-green-500"/>} onExit={onExit} userName={userName}>
+        <StoryContainer title="مهمة: التدقيق المالي" role="Merchant" icon={<Eye className="text-green-500" />} onExit={onExit} userName={userName}>
             {state === 'intro' && (
-                <GameIntro 
+                <GameIntro
                     mission="مراجعة الحسابات"
                     roleDescription="أنت مدير مالي لشركة تقنية. الشركة تستخدم Zcash للحفاظ على سرية رواتب الموظفين وصفقاتها التجارية."
                     objective="طلب منك المدقق الخارجي الاطلاع على سجلات الربع الأخير للتأكد من سلامة الحسابات. كيف تشارك البيانات معه بشكل آمن وموثوق؟"
@@ -543,17 +543,17 @@ const ReceiverGame: React.FC<{ onComplete: (s: number, id: string) => void, onEx
             {state === 'options' && (
                 <div className="flex flex-col h-full justify-center space-y-4">
                     <h4 className="text-center text-white font-bold mb-2">ماذا سترسل للمدقق؟</h4>
-                    
+
                     <button onClick={() => { setChoice('private'); setState('result'); }} className="bg-gray-800 border-l-4 border-red-500 p-4 rounded text-right hover:bg-gray-700 transition">
                         <h5 className="font-bold text-white">المفتاح الخاص (Private Key)</h5>
                         <p className="text-xs text-gray-400">"تفضل، هذا المفتاح يعطيك صلاحية كاملة على المحفظة."</p>
                     </button>
-                    
+
                     <button onClick={() => { setChoice('image'); setState('result'); }} className="bg-gray-800 border-l-4 border-yellow-500 p-4 rounded text-right hover:bg-gray-700 transition">
                         <h5 className="font-bold text-white">صورة شاشة (Screenshot)</h5>
                         <p className="text-xs text-gray-400">"سأرسل لك صوراً من تطبيق المحفظة."</p>
                     </button>
-                    
+
                     <button onClick={() => { setChoice('viewing'); setState('result'); }} className="bg-gray-800 border-l-4 border-green-500 p-4 rounded text-right hover:bg-gray-700 transition">
                         <h5 className="font-bold text-white">مفتاح المشاهدة (Viewing Key)</h5>
                         <p className="text-xs text-gray-400">"هذا مفتاح للقراءة فقط. يتيح لك رؤية المعاملات دون القدرة على التصرف بالأموال."</p>
@@ -562,13 +562,13 @@ const ReceiverGame: React.FC<{ onComplete: (s: number, id: string) => void, onEx
             )}
 
             {state === 'result' && (
-                <GameResult 
+                <GameResult
                     status={choice === 'viewing' ? 'success' : 'fail'}
                     title={choice === 'viewing' ? "إجراء صحيح!" : choice === 'private' ? "خطأ كارثي!" : "إثبات غير كافٍ"}
                     desc={
                         choice === 'viewing' ? "المدقق استطاع مراجعة السجلات والتأكد منها عبر البلوكشين مباشرة، مع بقاء أموال الشركة في أمان تام." :
-                        choice === 'private' ? "تحذير! إرسال المفتاح الخاص يعني منح المدقق (أو أي شخص يعترض الرسالة) القدرة على سحب كل الأموال." :
-                        "المدقق رفض الصور لأنها غير رسمية ويمكن تعديلها بسهولة. التدقيق المالي يتطلب إثباتاً رقمياً من الشبكة."
+                            choice === 'private' ? "تحذير! إرسال المفتاح الخاص يعني منح المدقق (أو أي شخص يعترض الرسالة) القدرة على سحب كل الأموال." :
+                                "المدقق رفض الصور لأنها غير رسمية ويمكن تعديلها بسهولة. التدقيق المالي يتطلب إثباتاً رقمياً من الشبكة."
                     }
                     lesson={choice === 'viewing' ? "مفتاح المشاهدة (Viewing Key) هو أداة قوية في Zcash تتيح 'الشفافية الاختيارية' للأغراض المحاسبية والضريبية." : "المفتاح الخاص (Private Key) هو سرك الوحيد للوصول للأموال، لا تشاركه مع أي جهة مهما كانت."}
                     score={30}
@@ -584,7 +584,7 @@ const ReceiverGame: React.FC<{ onComplete: (s: number, id: string) => void, onEx
 // --- GAME 4: VERIFIER (UPDATED) ---
 const VerifierGame: React.FC<{ onComplete: (s: number, id: string) => void, onExit: () => void, isCompleted?: boolean, userName?: string }> = ({ onComplete, onExit, isCompleted, userName }) => {
     const [state, setState] = useState<'intro' | 'step1' | 'step2' | 'step3' | 'result'>('intro');
-    const [lastInfo, setLastInfo] = useState<{title: string; points: string[]} | null>(null);
+    const [lastInfo, setLastInfo] = useState<{ title: string; points: string[] } | null>(null);
 
     const updateInfo = (stepNum: number) => {
         if (stepNum === 1) {
@@ -609,9 +609,9 @@ const VerifierGame: React.FC<{ onComplete: (s: number, id: string) => void, onEx
     };
 
     return (
-        <StoryContainer title="مهمة: إثبات المعرفة (Zk-SNARKs)" role="Verifier" icon={<Network className="text-purple-500"/>} onExit={onExit} userName={userName}>
+        <StoryContainer title="مهمة: إثبات المعرفة (Zk-SNARKs)" role="Verifier" icon={<Network className="text-purple-500" />} onExit={onExit} userName={userName}>
             {state === 'intro' && (
-                <GameIntro 
+                <GameIntro
                     mission="تجربة الكهف السحري"
                     roleDescription="أنت تقوم بدور (المتحقق). تريد التأكد من صحة معلومة معينة دون الاطلاع عليها، باستخدام مفهوم رياضي ذكي."
                     objective="شخص ما يدعي أنه يملك 'مفتاحاً سحرياً' يفتح باباً داخل كهف. كيف تتأكد من صدقه دون أن يعطيك المفتاح أو تراه وهو يفتح الباب؟"
@@ -624,7 +624,7 @@ const VerifierGame: React.FC<{ onComplete: (s: number, id: string) => void, onEx
             {state === 'step1' && (
                 <div className="flex flex-col h-full justify-center items-center text_center space-y-6">
                     <p className="text-lg text-gray-300">يوجد مساران للدخول: <span className="text-yellow-400 font-bold">المسار A</span> و <span className="text-blue-400 font-bold">المسار B</span>. الباب السحري يفصل بينهما من الداخل.</p>
-                    
+
                     <div className="w-40 h-40 rounded-full border-4 border-gray-600 relative flex items-center justify-center bg-gray-900/50">
                         <div className="absolute top-0 w-8 h-8 bg-gray-500 -mt-4 border-2 border-gray-400 text-[10px] flex items-center justify-center text-black font-bold">مدخل</div>
                         <div className="w-1 h-full bg-gray-700/50 absolute"></div>
@@ -671,7 +671,7 @@ const VerifierGame: React.FC<{ onComplete: (s: number, id: string) => void, onEx
             )}
 
             {state === 'result' && (
-                <GameResult 
+                <GameResult
                     status="success"
                     title="هذا هو zk-SNARK!"
                     desc="أنت لم ترَ كلمة السر، ولم تدخل الكهف. لكن بما أن 'أحمد' استطاع تنفيذ طلبك، فأنت متأكد بدرجة يقين عالية جدًا تقترب من 100% أنه يملك السر (Probabilistic Proof)."
@@ -712,9 +712,9 @@ const GovernorGame: React.FC<{ onComplete: (s: number, id: string) => void, onEx
     };
 
     return (
-        <StoryContainer title="لعبة: التصويت المجتمعي" role="Community Member" icon={<Gavel className="text-blue-400"/>} onExit={onExit} userName={userName}>
+        <StoryContainer title="لعبة: التصويت المجتمعي" role="Community Member" icon={<Gavel className="text-blue-400" />} onExit={onExit} userName={userName}>
             {state === 'intro' && (
-                <GameIntro 
+                <GameIntro
                     mission="لجنة المنح (ZCG)"
                     roleDescription="أنت عضو في المجتمع تشارك في اتخاذ القرارات حول كيفية استخدام صندوق تطوير الشبكة."
                     objective="لديك 3 مقترحات وميزانية محدودة. وافق على المشاريع التي تضيف قيمة حقيقية للشبكة والمستخدمين، وارفض المشاريع غير المجدية."
@@ -732,15 +732,15 @@ const GovernorGame: React.FC<{ onComplete: (s: number, id: string) => void, onEx
                     </div>
 
                     <div className="bg-gray-800 p-6 rounded-2xl border-2 border-gray-600 w-full max-w-md shadow-2xl relative overflow-hidden">
-                        <div className={`absolute top-0 right-0 p-2 text-xs font-bold text-black ${proposals[current-1].type === 'Dev' ? 'bg-blue-400' : proposals[current-1].type === 'Security' ? 'bg-green-400' : 'bg-purple-400'}`}>
-                            {proposals[current-1].type}
+                        <div className={`absolute top-0 right-0 p-2 text-xs font-bold text-black ${proposals[current - 1].type === 'Dev' ? 'bg-blue-400' : proposals[current - 1].type === 'Security' ? 'bg-green-400' : 'bg-purple-400'}`}>
+                            {proposals[current - 1].type}
                         </div>
-                        
-                        <h3 className="text-xl font-bold text-white mb-4 mt-2">{proposals[current-1].title}</h3>
-                        <p className="text-gray-300 text-sm mb-6 min-h-[80px]">{proposals[current-1].desc}</p>
-                        
+
+                        <h3 className="text-xl font-bold text-white mb-4 mt-2">{proposals[current - 1].title}</h3>
+                        <p className="text-gray-300 text-sm mb-6 min-h-[80px]">{proposals[current - 1].desc}</p>
+
                         <div className="flex justify-between items-center border-t border-gray-700 pt-4">
-                            <span className="text-gray-400 text-xs">COST: {proposals[current-1].cost}</span>
+                            <span className="text-gray-400 text-xs">COST: {proposals[current - 1].cost}</span>
                             <div className="flex gap-3">
                                 <button onClick={() => handleVote(false)} className="bg-red-900/30 hover:bg-red-600 border border-red-600 text-white px-4 py-2 rounded-lg transition text-sm">رفض 👎</button>
                                 <button onClick={() => handleVote(true)} className="bg-green-900/30 hover:bg-green-600 border border-green-600 text-white px-4 py-2 rounded-lg transition text-sm">موافقة 👍</button>
@@ -751,7 +751,7 @@ const GovernorGame: React.FC<{ onComplete: (s: number, id: string) => void, onEx
             )}
 
             {state === 'result' && (
-                <GameResult 
+                <GameResult
                     status={calculateScore() === 3 ? 'success' : 'fail'}
                     title={calculateScore() === 3 ? "قرارات صائبة!" : "مراجعة القرارات"}
                     desc={calculateScore() === 3 ? "لقد دعمت التطوير والأمان، وتجنبت هدر الموارد. هذه القرارات تساهم في استدامة ونمو الشبكة." : "لقد وافقت على مشاريع ضعيفة أو رفضت مشاريع مهمة. إدارة الموارد تتطلب التدقيق في الجدوى والفائدة."}
@@ -771,9 +771,9 @@ const EngineerGame: React.FC<{ onComplete: (s: number, id: string) => void, onEx
     const [selection, setSelection] = useState<number | null>(null);
 
     return (
-        <StoryContainer title="لعبة: مهندس البروتوكول" role="Core Developer" icon={<Cpu className="text-cyan-400"/>} onExit={onExit} userName={userName}>
-             {state === 'intro' && (
-                <GameIntro 
+        <StoryContainer title="لعبة: مهندس البروتوكول" role="Core Developer" icon={<Cpu className="text-cyan-400" />} onExit={onExit} userName={userName}>
+            {state === 'intro' && (
+                <GameIntro
                     mission="تحديث الشبكة"
                     roleDescription="أنت تعمل ضمن فريق تطوير البرمجيات الأساسية للشبكة."
                     objective="هناك ملاحظات من المستخدمين بأن إنشاء المعاملات المشفرة يستغرق وقتاً طويلاً ويتطلب أجهزة قوية. مهمتك هي اختيار الحل التقني المناسب لتحسين الأداء."
@@ -796,13 +796,13 @@ const EngineerGame: React.FC<{ onComplete: (s: number, id: string) => void, onEx
                         <h4 className="font-bold text-white">ترقية Sapling</h4>
                         <p className="text-xs text-gray-400">تطبيق خوارزميات رياضية متطورة لتحسين الكفاءة والسرعة دون التضحية بالخصوصية.</p>
                     </button>
-                    
+
                     {selection === 1 && <p className="text-red-400 text-center text-sm animate-bounce">تنبيه: الخصوصية هي جوهر النظام. لا ينصح بإلغائها.</p>}
                 </div>
             )}
 
             {state === 'success' && (
-                <GameResult 
+                <GameResult
                     status="success"
                     title="تحديث ناجح!"
                     desc="تحديث Sapling كان نقلة نوعية. انخفض وقت إنشاء المعاملة بشكل كبير وأصبح بالإمكان إجراؤها بسهولة على الهواتف المحمولة."
@@ -853,9 +853,9 @@ const GuardianGame: React.FC<{ onComplete: (s: number, id: string) => void, onEx
     };
 
     return (
-        <StoryContainer title="لعبة: الوعي الأمني" role="Support Guide" icon={<ShieldAlert className="text-orange-500"/>} onExit={onExit} userName={userName}>
-             {state === 'intro' && (
-                <GameIntro 
+        <StoryContainer title="لعبة: الوعي الأمني" role="Support Guide" icon={<ShieldAlert className="text-orange-500" />} onExit={onExit} userName={userName}>
+            {state === 'intro' && (
+                <GameIntro
                     mission="توجيه المستخدمين"
                     roleDescription="أنت تقوم بدور المرشد للمستخدمين الجدد. هدفك هو مساعدتهم على استخدام النظام بشكل آمن وصحيح."
                     objective="أمامك 3 استفسارات شائعة. اختر الإجابة الصحيحة لحماية المستخدمين وضمان استخدامهم الأمثل للميزات."
@@ -874,7 +874,7 @@ const GuardianGame: React.FC<{ onComplete: (s: number, id: string) => void, onEx
 
                     <div className="grid gap-4">
                         {scenarios[currentScenario].options.map((opt, i) => (
-                            <button 
+                            <button
                                 key={i}
                                 onClick={() => handleAnswer(opt.correct)}
                                 className="bg-gray-800 hover:bg-gray-700 p-4 rounded-xl text-right border border-gray-600 hover:border-white transition"
@@ -887,7 +887,7 @@ const GuardianGame: React.FC<{ onComplete: (s: number, id: string) => void, onEx
             )}
 
             {state === 'result' && (
-                <GameResult 
+                <GameResult
                     status={score === 3 ? 'success' : 'fail'}
                     title={score === 3 ? "مرشد متميز!" : "معلومات تحتاج لمراجعة"}
                     desc={score === 3 ? "أجوبتك صحيحة وتساهم في رفع الوعي الأمني لدى المستخدمين." : `لقد أجبت على ${score}/3 فقط بشكل صحيح. دقة المعلومات مهمة جداً للحفاظ على سلامة أصول المستخدمين.`}
@@ -902,23 +902,23 @@ const GuardianGame: React.FC<{ onComplete: (s: number, id: string) => void, onEx
     );
 };
 
-const GamesHub: React.FC<{ onScore: (s: number, id: string) => void, completedGames?: string[], userName?: string }> = ({ onScore, completedGames = [], userName }) => {
+const GamesHub: React.FC<{ onScore: (s: number, id: string) => void, completedGames?: string[], userName?: string, onGuestAccess?: () => void }> = ({ onScore, completedGames = [], userName, onGuestAccess }) => {
     const [selectedGame, setSelectedGame] = useState<string | null>(null);
 
     const games = [
-        { id: 'miner', title: '1. تشغيل العقدة', desc: 'معالجة المعاملات وإنشاء البلوك', icon: <Pickaxe className="text-yellow-500"/>, color: 'border-yellow-600' },
-        { id: 'sender', title: '2. التحويل الآمن', desc: 'خيارات الدفع والخصوصية (متقدم)', icon: <Smartphone className="text-blue-500"/>, color: 'border-blue-600' },
-        { id: 'receiver', title: '3. التدقيق المالي', desc: 'المشاركة الآمنة للبيانات', icon: <Eye className="text-green-500"/>, color: 'border-green-600' },
-        { id: 'verifier', title: '4. إثبات المعرفة', desc: 'مفهوم المعرفة الصفرية (Zk-SNARKs)', icon: <Network className="text-purple-500"/>, color: 'border-purple-600' },
-        { id: 'governor', title: '5. التصويت المجتمعي', desc: 'المشاركة في اتخاذ القرارات', icon: <Gavel className="text-blue-400"/>, color: 'border-blue-400' },
-        { id: 'engineer', title: '6. مهندس البروتوكول', desc: 'تطوير وتحسين أداء الشبكة', icon: <Cpu className="text-cyan-400"/>, color: 'border-cyan-400' },
-        { id: 'guardian', title: '7. الوعي الأمني', desc: 'أفضل ممارسات الاستخدام', icon: <ShieldAlert className="text-orange-500"/>, color: 'border-orange-500' },
+        { id: 'miner', title: '1. تشغيل العقدة', desc: 'معالجة المعاملات وإنشاء البلوك', icon: <Pickaxe className="text-yellow-500" />, color: 'border-yellow-600' },
+        { id: 'sender', title: '2. التحويل الآمن', desc: 'خيارات الدفع والخصوصية (متقدم)', icon: <Smartphone className="text-blue-500" />, color: 'border-blue-600' },
+        { id: 'receiver', title: '3. التدقيق المالي', desc: 'المشاركة الآمنة للبيانات', icon: <Eye className="text-green-500" />, color: 'border-green-600' },
+        { id: 'verifier', title: '4. إثبات المعرفة', desc: 'مفهوم المعرفة الصفرية (Zk-SNARKs)', icon: <Network className="text-purple-500" />, color: 'border-purple-600' },
+        { id: 'governor', title: '5. التصويت المجتمعي', desc: 'المشاركة في اتخاذ القرارات', icon: <Gavel className="text-blue-400" />, color: 'border-blue-400' },
+        { id: 'engineer', title: '6. مهندس البروتوكول', desc: 'تطوير وتحسين أداء الشبكة', icon: <Cpu className="text-cyan-400" />, color: 'border-cyan-400' },
+        { id: 'guardian', title: '7. الوعي الأمني', desc: 'أفضل ممارسات الاستخدام', icon: <ShieldAlert className="text-orange-500" />, color: 'border-orange-500' },
     ];
 
     const isGameCompleted = (id: string) => completedGames.includes(id);
 
     const renderGame = () => {
-        switch(selectedGame) {
+        switch (selectedGame) {
             case 'miner': return <MinerGame onExit={() => setSelectedGame(null)} onComplete={onScore} isCompleted={isGameCompleted('miner')} userName={userName} />;
             case 'sender': return <SenderGame onExit={() => setSelectedGame(null)} onComplete={onScore} isCompleted={isGameCompleted('sender')} userName={userName} />;
             case 'receiver': return <ReceiverGame onExit={() => setSelectedGame(null)} onComplete={onScore} isCompleted={isGameCompleted('receiver')} userName={userName} />;
@@ -953,27 +953,27 @@ const GamesHub: React.FC<{ onScore: (s: number, id: string) => void, completedGa
                     </div>
                 )}
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {games.map((game, idx) => {
                     const done = isGameCompleted(game.id);
                     return (
-                        <div 
+                        <div
                             key={game.id}
                             onClick={() => setSelectedGame(game.id)}
                             className={`bg-gray-800 p-6 rounded-2xl border-2 ${done ? 'border-green-500/50 bg-green-900/10' : `${game.color} border-transparent`} hover:border-white cursor-pointer transition-all hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] group relative overflow-hidden animate-fadeIn`}
-                            style={{animationDelay: `${idx * 0.05}s`}}
+                            style={{ animationDelay: `${idx * 0.05}s` }}
                         >
                             <div className="flex items-center gap-4 mb-3">
                                 <div className="bg-gray-900 p-3 rounded-xl shadow-inner group-hover:scale-110 transition-transform">
-                                    {done ? <CheckCircle className="text-green-500"/> : game.icon}
+                                    {done ? <CheckCircle className="text-green-500" /> : game.icon}
                                 </div>
                                 <h3 className="font-bold text-lg text-white group-hover:text-zcash transition-colors">{game.title}</h3>
                             </div>
                             <p className="text-gray-400 text-sm">{game.desc}</p>
-                            
+
                             <div className="mt-4 flex items-center text-xs font-bold text-gray-500 group-hover:text-white transition-colors">
-                                {done ? <span className="text-green-400">مكتمل</span> : <>ابدأ التجربة <Share2 size={12} className="mr-1 rotate-180"/></>}
+                                {done ? <span className="text-green-400">مكتمل</span> : <>ابدأ التجربة <Share2 size={12} className="mr-1 rotate-180" /></>}
                             </div>
                         </div>
                     )

@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { View, Lesson, User, LeaderboardEntry } from './types';
-import { BookOpen, Gamepad2, Home, ArrowRight, Shield, CheckCircle, Trophy, User as UserIcon, LogOut, Check, X, Lock, Loader2, Users, Mail, KeyRound, Lightbulb, Info, Share2, Sparkles, LogIn, UserPlus } from 'lucide-react';
+import { BookOpen, Gamepad2, Home, ArrowRight, Shield, CheckCircle, Trophy, User as UserIcon, LogOut, Check, X, Lock, Loader2, Users, Mail, KeyRound, Lightbulb, Info, Share2, Sparkles, LogIn, UserPlus, FileText } from 'lucide-react';
 import GamesHub from './components/ShieldGame';
 import { LessonZero, LessonOne, LessonTwo, LessonThree, LessonFour, LessonFive, LessonSix, LessonEight, LessonNine, LessonTen } from './components/Lessons';
 import { AuthService } from './services/db';

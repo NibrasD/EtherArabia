@@ -26,7 +26,7 @@ export interface Lesson {
   id: string;
   title: string;
   description: string;
-  content: (onComplete: (points: number) => void, isCompleted: boolean) => React.ReactNode; // Changed to function prop accepting isCompleted
+  content: (onComplete: (points: number) => void, isCompleted: boolean, userName?: string) => React.ReactNode; // Added userName argument
   difficulty: 'مبتدئ' | 'متوسط';
   duration: string;
 }
