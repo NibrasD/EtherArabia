@@ -1,5 +1,4 @@
 <div align="center">
-  <img src="./logo.png" width="200" alt="Ethereum Arabia Academy Logo" />
   <h1>Ethereum Arabia Security Suite (EtherArabia)</h1>
   <p><strong>A Unified Hub for Blockchain Defense, Smart Contract Auditing, and Interactive Education.</strong></p>
   
