@@ -42,11 +42,11 @@ const LessonQuiz = ({
     <div className="mt-12 border-t-2 border-gray-700 pt-8 animate-fadeIn">
       <div className="bg-gray-800 rounded-xl p-6 border border-gray-600 shadow-2xl relative overflow-hidden">
         <div className="absolute top-0 right-0 p-4 opacity-10">
-          <HelpCircle size={100} className="text-zcash" />
+          <HelpCircle size={100} className="text-إيثيريوم" />
         </div>
         
         <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2 relative z-10">
-          <BrainCircuit className="text-zcash" /> 
+          <BrainCircuit className="text-إيثيريوم" /> 
           اختبار سريع (10 نقاط)
         </h3>
         
@@ -63,7 +63,7 @@ const LessonQuiz = ({
                   ? 'bg-green-900/50 border-green-500 text-green-200' 
                   : submitted && idx === selected && idx !== correctIndex
                     ? 'bg-red-900/50 border-red-500 text-red-200'
-                    : 'bg-gray-700 border-gray-600 hover:bg-gray-600 text-gray-200 hover:border-zcash'
+                    : 'bg-gray-700 border-gray-600 hover:bg-gray-600 text-gray-200 hover:border-إيثيريوم'
                 }
               `}
             >
@@ -94,7 +94,7 @@ const LessonQuiz = ({
 };
 
 // --- INTERACTIVE DEMOS ---
-const ZkProofGame = () => {
+const SecurityDemo = () => {
     const [step, setStep] = useState(0);
     // Simulating a Spending Key (Private Key)
     const spendingKey = "SK_8372_XMAL"; 
@@ -117,7 +117,7 @@ const ZkProofGame = () => {
       <div className="bg-gradient-to-br from-blue-900/20 to-gray-900 border border-blue-700/50 p-6 rounded-xl my-6 shadow-lg">
         <div className="flex items-center gap-3 mb-4">
             <div className="bg-blue-500/20 p-2 rounded-full"><BrainCircuit size={24} className="text-blue-400"/></div>
-            <h3 className="text-xl font-bold text-blue-300">محاكي: إثبات ملكية المفتاح (zk-SNARKs)</h3>
+            <h3 className="text-xl font-bold text-blue-300">محاكي: إثبات ملكية المفتاح (Blockchain Security)</h3>
         </div>
         
         <div className="bg-black/30 p-4 rounded-lg mb-6 text-sm text-gray-300 border-l-2 border-blue-500">
@@ -128,7 +128,7 @@ const ZkProofGame = () => {
           {step === 0 && (
             <div className="w-full text-center animate-fadeIn">
               <p className="mb-4 text-gray-400">هذا هو مفتاح الإنفاق السري الخاص بك (Spending Key):</p>
-              <div className="text-2xl font-mono font-black text-zcash tracking-widest mb-8 drop-shadow-[0_0_10px_rgba(244,183,40,0.5)] border border-zcash/30 p-4 rounded bg-black/50">{spendingKey}</div>
+              <div className="text-2xl font-mono font-black text-إيثيريوم tracking-widest mb-8 drop-shadow-[0_0_10px_rgba(244,183,40,0.5)] border border-إيثيريوم/30 p-4 rounded bg-black/50">{spendingKey}</div>
               <button onClick={() => setStep(1)} className="bg-blue-600 px-8 py-3 rounded-full hover:bg-blue-500 font-bold text-white shadow-lg transform transition hover:scale-105">
                   حسناً، أريد إجراء معاملة
               </button>
@@ -141,7 +141,7 @@ const ZkProofGame = () => {
               <input 
                 type="text" 
                 placeholder="أدخل المفتاح هنا..."
-                className="w-full bg-gray-900 border border-gray-600 p-4 rounded-xl text-center text-xl mb-4 focus:border-zcash focus:outline-none transition-colors text-white placeholder-gray-700 font-mono"
+                className="w-full bg-gray-900 border border-gray-600 p-4 rounded-xl text-center text-xl mb-4 focus:border-إيثيريوم focus:outline-none transition-colors text-white placeholder-gray-700 font-mono"
                 value={inputCode}
                 onChange={(e) => { setInputCode(e.target.value); setProofStatus('idle'); }}
               />
@@ -149,7 +149,7 @@ const ZkProofGame = () => {
                 onClick={generateProof}
                 disabled={proofStatus === 'generating'}
                 className={`font-bold px-6 py-3 rounded-xl w-full flex justify-center items-center gap-2 shadow-lg transition-all
-                  ${proofStatus === 'generating' ? 'bg-gray-600 cursor-wait' : 'bg-zcash text-black hover:bg-zcash-dark hover:scale-[1.02]'}`}
+                  ${proofStatus === 'generating' ? 'bg-gray-600 cursor-wait' : 'bg-إيثيريوم text-black hover:bg-إيثيريوم-dark hover:scale-[1.02]'}`}
               >
                 {proofStatus === 'generating' ? (
                     <><RefreshCw className="animate-spin"/> جاري إنشاء zk-Proof...</>
@@ -240,7 +240,7 @@ const BlockchainBuilder = () => {
     const BlockCard = ({ block, isValid, onChange, prevValid }: { block: any, isValid: boolean, onChange: (v: string) => void, prevValid: boolean }) => (
         <div className={`relative p-4 rounded-xl border-2 transition-all duration-300 ${isValid ? 'bg-gray-800 border-gray-600' : 'bg-red-900/20 border-red-500'}`}>
             <div className="flex justify-between items-center mb-2">
-                <span className="font-bold text-zcash">Block #{block.id}</span>
+                <span className="font-bold text-إيثيريوم">Block #{block.id}</span>
                 {!isValid && <div className="flex items-center text-red-500 text-xs font-bold gap-1"><Unlink size={14}/> سلسلة مكسورة</div>}
                 {isValid && <div className="flex items-center text-green-500 text-xs font-bold gap-1"><LinkIcon size={14}/> متصل</div>}
             </div>
@@ -252,7 +252,7 @@ const BlockchainBuilder = () => {
                         type="text" 
                         value={block.data} 
                         onChange={(e) => onChange(e.target.value)}
-                        className={`w-full bg-gray-900 border rounded p-2 focus:outline-none focus:border-zcash text-white ${!isValid && block.id === 1 ? 'border-red-500' : 'border-gray-700'}`}
+                        className={`w-full bg-gray-900 border rounded p-2 focus:outline-none focus:border-إيثيريوم text-white ${!isValid && block.id === 1 ? 'border-red-500' : 'border-gray-700'}`}
                     />
                 </div>
                 <div>
@@ -322,27 +322,27 @@ const VisualBlockchain = () => {
                 <p className="text-center text-gray-500 text-xs mt-4">الجميع يرى كل التفاصيل.</p>
             </div>
 
-            <div className="bg-gray-800 p-4 rounded-xl border border-zcash">
-                <h4 className="text-center font-bold text-white mb-4 border-b border-gray-700 pb-2 flex items-center justify-center gap-2"><Shield size={16}/> دفتر محمي (Zcash)</h4>
+            <div className="bg-gray-800 p-4 rounded-xl border border-إيثيريوم">
+                <h4 className="text-center font-bold text-white mb-4 border-b border-gray-700 pb-2 flex items-center justify-center gap-2"><Shield size={16}/> دفتر محمي (إيثيريوم)</h4>
                 <div className="space-y-2 font-mono text-xs">
-                    <div className="bg-black/50 p-3 rounded border-l-4 border-zcash text-gray-500 relative overflow-hidden group">
-                         <div className="absolute inset-0 bg-gray-900/90 flex items-center justify-center text-zcash/50 font-bold tracking-widest backdrop-blur-sm">
+                    <div className="bg-black/50 p-3 rounded border-l-4 border-إيثيريوم text-gray-500 relative overflow-hidden group">
+                         <div className="absolute inset-0 bg-gray-900/90 flex items-center justify-center text-إيثيريوم/50 font-bold tracking-widest backdrop-blur-sm">
                              ZK-PROOF
                          </div>
                         <div className="flex justify-between"><span>From:</span> <span>?????</span></div>
                         <div className="flex justify-between"><span>To:</span> <span>?????</span></div>
-                        <div className="flex justify-between"><span>Amount:</span> <span>??? ZEC</span></div>
+                        <div className="flex justify-between"><span>Amount:</span> <span>??? ETH</span></div>
                     </div>
-                    <div className="bg-black/50 p-3 rounded border-l-4 border-zcash text-gray-500 relative overflow-hidden">
-                         <div className="absolute inset-0 bg-gray-900/90 flex items-center justify-center text-zcash/50 font-bold tracking-widest backdrop-blur-sm">
+                    <div className="bg-black/50 p-3 rounded border-l-4 border-إيثيريوم text-gray-500 relative overflow-hidden">
+                         <div className="absolute inset-0 bg-gray-900/90 flex items-center justify-center text-إيثيريوم/50 font-bold tracking-widest backdrop-blur-sm">
                              ZK-PROOF
                          </div>
                         <div className="flex justify-between"><span>From:</span> <span>?????</span></div>
                         <div className="flex justify-between"><span>To:</span> <span>?????</span></div>
-                        <div className="flex justify-between"><span>Amount:</span> <span>??? ZEC</span></div>
+                        <div className="flex justify-between"><span>Amount:</span> <span>??? ETH</span></div>
                     </div>
                 </div>
-                <p className="text-center text-zcash text-xs mt-4">إثبات رياضي فقط (zk-SNARKs)</p>
+                <p className="text-center text-إيثيريوم text-xs mt-4">إثبات رياضي فقط (Blockchain Security)</p>
             </div>
         </div>
     );
@@ -353,7 +353,7 @@ const VisualBlockchain = () => {
 const Section = ({title, children}: {title: string, children?: React.ReactNode}) => (
     <div className="mb-8">
         <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-            <div className="w-1 h-6 bg-zcash rounded-full"></div>
+            <div className="w-1 h-6 bg-إيثيريوم rounded-full"></div>
             {title}
         </h3>
         <div className="text-gray-300 leading-relaxed space-y-4 text-lg">
@@ -363,8 +363,8 @@ const Section = ({title, children}: {title: string, children?: React.ReactNode})
 );
 
 const KeyTakeaway = ({children}: {children?: React.ReactNode}) => (
-    <div className="bg-zcash/10 border-l-4 border-zcash p-4 rounded-r-lg my-6">
-        <h4 className="text-zcash font-bold mb-2 flex items-center gap-2"><Lightbulb size={18}/> معلومة جوهرية</h4>
+    <div className="bg-إيثيريوم/10 border-l-4 border-إيثيريوم p-4 rounded-r-lg my-6">
+        <h4 className="text-إيثيريوم font-bold mb-2 flex items-center gap-2"><Lightbulb size={18}/> معلومة جوهرية</h4>
         <div className="text-gray-200 text-sm md:text-base">{children}</div>
     </div>
 );
@@ -387,15 +387,15 @@ export const LessonZero: React.FC<LessonProps> = ({onComplete, isCompleted, user
         <Section title="2. العناصر الأساسية للبنية">
              <div className="space-y-4">
                  <div className="bg-gray-800 p-4 rounded-xl border border-gray-700">
-                    <h4 className="text-white font-bold mb-2 flex items-center gap-2"><Box size={18} className="text-zcash"/> الكتل (Blocks)</h4>
+                    <h4 className="text-white font-bold mb-2 flex items-center gap-2"><Box size={18} className="text-إيثيريوم"/> الكتل (Blocks)</h4>
                     <p className="text-gray-400 text-sm">تحتوي على بيانات المعاملات، توقيت، ومؤشرات تشفيرية.</p>
                  </div>
                  <div className="bg-gray-800 p-4 rounded-xl border border-gray-700">
-                    <h4 className="text-white font-bold mb-2 flex items-center gap-2"><Hash size={18} className="text-zcash"/> الهاش (Hash)</h4>
+                    <h4 className="text-white font-bold mb-2 flex items-center gap-2"><Hash size={18} className="text-إيثيريوم"/> الهاش (Hash)</h4>
                     <p className="text-gray-400 text-sm">قيمة رقمية فريدة ناتجة عن عملية تشفير للبيانات داخل الكتلة. أي تغيير صغير في البيانات يعطي هاش مختلف كليًا.</p>
                  </div>
                  <div className="bg-gray-800 p-4 rounded-xl border border-gray-700">
-                    <h4 className="text-white font-bold mb-2 flex items-center gap-2"><LinkIcon size={18} className="text-zcash"/> الربط بين الكتل</h4>
+                    <h4 className="text-white font-bold mb-2 flex items-center gap-2"><LinkIcon size={18} className="text-إيثيريوم"/> الربط بين الكتل</h4>
                     <p className="text-gray-400 text-sm">كل كتلة تخزن هاش الكتلة السابقة. هذا يجعل السلسلة متسلسلة وغير قابلة للتعديل بسهولة.</p>
                  </div>
                  <div className="bg-gray-800 p-4 rounded-xl border border-gray-700 relative overflow-hidden">
@@ -439,7 +439,7 @@ export const LessonZero: React.FC<LessonProps> = ({onComplete, isCompleted, user
         <Section title="5. تطبيقات عملية (Applications)">
             <div className="bg-gray-800/50 p-4 rounded-xl border border-gray-700">
                 <ul className="space-y-3 text-sm text-gray-300">
-                    <li className="flex items-center gap-2"><Coins className="text-zcash" size={16}/> <strong>العملات الرقمية:</strong> نقل الأموال والقيمة بلا وسيط (بنوك).</li>
+                    <li className="flex items-center gap-2"><Coins className="text-إيثيريوم" size={16}/> <strong>العملات الرقمية:</strong> نقل الأموال والقيمة بلا وسيط (بنوك).</li>
                     <li className="flex items-center gap-2"><FileText className="text-blue-400" size={16}/> <strong>العقود الذكية:</strong> برامج تنفذ تلقائياً عند تحقق شروط معينة.</li>
                     <li className="flex items-center gap-2"><Layers className="text-purple-400" size={16}/> <strong>سلاسل الإمداد:</strong> تتبع المنتجات من المصنع إلى المستهلك لمنع الغش.</li>
                     <li className="flex items-center gap-2"><User className="text-green-400" size={16}/> <strong>الهوية الرقمية:</strong> حماية بيانات المستخدمين والتحقق منها بخصوصية.</li>
@@ -449,11 +449,11 @@ export const LessonZero: React.FC<LessonProps> = ({onComplete, isCompleted, user
 
         <Section title="6. مصطلحات مهمة">
              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                 <div className="border-r-2 border-zcash pr-4">
+                 <div className="border-r-2 border-إيثيريوم pr-4">
                      <strong className="text-white block">معاملة (Transaction)</strong>
                      <span className="text-sm text-gray-400">تبادل بيانات/قيمة بين طرفين.</span>
                  </div>
-                 <div className="border-r-2 border-zcash pr-4">
+                 <div className="border-r-2 border-إيثيريوم pr-4">
                      <strong className="text-white block">محفظة (Wallet)</strong>
                      <span className="text-sm text-gray-400">برنامج يخزن المفاتيح الخاصة/العامة.</span>
                  </div>
@@ -486,13 +486,13 @@ export const LessonZero: React.FC<LessonProps> = ({onComplete, isCompleted, user
 };
 
 export const LessonOne: React.FC<LessonProps> = ({onComplete, isCompleted, userName}) => {
-    // Lesson 2: What is Zcash?
+    // Lesson 2: What is إيثيريوم?
     return (
       <div className="animate-fadeIn text-right max-w-3xl mx-auto pb-20">
         
         {/* Info Card */}
-        <div className="bg-gray-800 p-6 rounded-xl border-t-4 border-zcash shadow-lg mb-8">
-            <h4 className="text-white font-bold mb-4 flex items-center gap-2"><Info className="text-zcash"/> بطاقة تعريفية</h4>
+        <div className="bg-gray-800 p-6 rounded-xl border-t-4 border-إيثيريوم shadow-lg mb-8">
+            <h4 className="text-white font-bold mb-4 flex items-center gap-2"><Info className="text-إيثيريوم"/> بطاقة تعريفية</h4>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-center">
                 <div className="bg-gray-900 p-3 rounded">
                     <span className="block text-gray-500 text-xs mb-1">سنة الإطلاق</span>
@@ -500,7 +500,7 @@ export const LessonOne: React.FC<LessonProps> = ({onComplete, isCompleted, userN
                 </div>
                 <div className="bg-gray-900 p-3 rounded">
                     <span className="block text-gray-500 text-xs mb-1">الرمز (Ticker)</span>
-                    <strong className="text-zcash font-mono">ZEC</strong>
+                    <strong className="text-إيثيريوم font-mono">ETH</strong>
                 </div>
                 <div className="bg-gray-900 p-3 rounded col-span-2 md:col-span-1">
                     <span className="block text-gray-500 text-xs mb-1">المؤسسون</span>
@@ -511,13 +511,13 @@ export const LessonOne: React.FC<LessonProps> = ({onComplete, isCompleted, userN
 
         <Section title="1. تعريف مبسّط">
           <p>
-            Zcash هي عملة رقمية مفتوحة المصدر تركز على الخصوصية. تُتيح للمستخدمين اختيار مستوى الخصوصية: إما معاملات شفافة مشابهة لبيتكوين، أو معاملات محمية تخفي كل التفاصيل (المرسل، المستقبل، المبلغ).
+            إيثيريوم هي عملة رقمية مفتوحة المصدر تركز على الخصوصية. تُتيح للمستخدمين اختيار مستوى الخصوصية: إما معاملات شفافة مشابهة لبيتكوين، أو معاملات محمية تخفي كل التفاصيل (المرسل، المستقبل، المبلغ).
           </p>
         </Section>
 
-        <Section title="2. لماذا ظهرت Zcash؟">
+        <Section title="2. لماذا ظهرت إيثيريوم؟">
             <p>
-            في بيتكوين وكل سلسلة عامة، يمكن لأي شخص مشاهدة العناوين والمبالغ (مع بعض الجهد يمكن ربطها بأشخاص حقيقيين). Zcash جاءت لتمنح خيارًا قويًا للخصوصية عبر تقنيات تشفير متقدّمة.
+            في بيتكوين وكل سلسلة عامة، يمكن لأي شخص مشاهدة العناوين والمبالغ (مع بعض الجهد يمكن ربطها بأشخاص حقيقيين). إيثيريوم جاءت لتمنح خيارًا قويًا للخصوصية عبر تقنيات تشفير متقدّمة.
             </p>
         </Section>
 
@@ -527,8 +527,8 @@ export const LessonOne: React.FC<LessonProps> = ({onComplete, isCompleted, userN
                     <h4 className="text-red-400 font-bold mb-2">t-address (Transparent)</h4>
                     <p className="text-sm text-gray-300">تشبه عناوين البيتكوين — معلومة ومفتوحة للجميع.</p>
                  </div>
-                 <div className="bg-gray-800 p-4 rounded-xl border border-zcash/50">
-                    <h4 className="text-zcash font-bold mb-2">z-address (Shielded)</h4>
+                 <div className="bg-gray-800 p-4 rounded-xl border border-إيثيريوم/50">
+                    <h4 className="text-إيثيريوم font-bold mb-2">z-address (Shielded)</h4>
                     <p className="text-sm text-gray-300">عناوين محمية تخفي المعلومات باستعمال إثباتات تشفيرية.</p>
                  </div>
             </div>
@@ -547,14 +547,14 @@ export const LessonOne: React.FC<LessonProps> = ({onComplete, isCompleted, userN
                     <span className="text-yellow-500 font-bold w-12 text-center">z → t</span>
                     <span className="text-gray-400">من محفظة محمية إلى شفافة (Deshielding)</span>
                 </div>
-                <div className="flex items-center gap-4 bg-zcash/10 border border-zcash/30 p-2 rounded">
-                    <span className="text-zcash font-bold w-12 text-center">z → z</span>
+                <div className="flex items-center gap-4 bg-إيثيريوم/10 border border-إيثيريوم/30 p-2 rounded">
+                    <span className="text-إيثيريوم font-bold w-12 text-center">z → z</span>
                     <span className="text-white">محمية بالكامل (لا يظهر المرسل، المستقبل، أو المبلغ)</span>
                 </div>
             </div>
         </Section>
 
-        <Section title="4. التقنية الأساسية: zk-SNARKs">
+        <Section title="4. التقنية الأساسية: Blockchain Security">
             <div className="bg-blue-900/20 p-6 rounded-xl border border-blue-500/30">
                 <p className="mb-4">
                     هي طريقة رياضية (إثبات المعرفة الصفرية) تسمح لواحد أن يثبت صحة معلومة (مثل: "أملك رصيدًا كافيًا") بدون الكشف عن المعلومة نفسها.
@@ -569,7 +569,7 @@ export const LessonOne: React.FC<LessonProps> = ({onComplete, isCompleted, userN
         <Section title="5. تطورات تقنية فارقة">
             <div className="relative border-r-2 border-gray-700 mr-3 space-y-8 py-4">
                 <div className="relative">
-                    <div className="absolute -right-[21px] top-1 bg-gray-900 border-2 border-zcash rounded-full w-4 h-4"></div>
+                    <div className="absolute -right-[21px] top-1 bg-gray-900 border-2 border-إيثيريوم rounded-full w-4 h-4"></div>
                     <div className="mr-6">
                         <h4 className="text-white font-bold flex items-center gap-2"><Calendar size={16} className="text-gray-400"/> 2018: تحديث Sapling</h4>
                         <p className="text-sm text-gray-400 mt-1">نقلة نوعية حسّنت سرعة وكفاءة المعاملات المحمية بشكل كبير، مما جعل استخدام الخصوصية ممكناً على الهواتف المحمولة.</p>
@@ -591,7 +591,7 @@ export const LessonOne: React.FC<LessonProps> = ({onComplete, isCompleted, userN
             </div>
         </Section>
   
-        <Section title="6. مزايا Zcash">
+        <Section title="6. مزايا إيثيريوم">
             <ul className="space-y-2 text-gray-300 list-disc list-inside">
                 <li><strong className="text-white">خصوصية اختيارية:</strong> المستخدم يقرر متى يستعمل الخصوصية.</li>
                 <li><strong className="text-white">شفافية مرنة:</strong> يمكن التدقيق في حالات معينة إذا رغب المستخدم.</li>
@@ -617,12 +617,12 @@ export const LessonTwo: React.FC<LessonProps> = ({onComplete, isCompleted, userN
           تخيل أنك تريد إثبات أنك تملك توقيعاً بنكياً معتمداً لصرف شيك، لكنك لا تريد لأي شخص (ولا حتى موظف البنك) أن يرى شكل توقيعك الأصلي خوفاً من تزويره.
         </p>
         <p>
-            هنا تأتي عبقرية <strong>zk-SNARKs</strong> (إثبات المعرفة الصفرية). إنها تقنية تسمح لك بإثبات أنك تملك <strong>مفتاح الإنفاق (Spending Key)</strong>، دون أن تضطر لإظهار هذا المفتاح لأي أحد.
+            هنا تأتي عبقرية <strong>Blockchain Security</strong> (إثبات المعرفة الصفرية). إنها تقنية تسمح لك بإثبات أنك تملك <strong>مفتاح الإنفاق (Spending Key)</strong>، دون أن تضطر لإظهار هذا المفتاح لأي أحد.
         </p>
         <p>
-            في عالم Zcash، هذه التقنية تسمح للمعاملة بأن تقول للشبكة رياضياً:
+            في عالم إيثيريوم، هذه التقنية تسمح للمعاملة بأن تقول للشبكة رياضياً:
             <br/>
-            <span className="text-zcash font-bold">"أنا أملك مفتاحاً صحيحاً (Spending Key) يخولني لصرف هذا المبلغ، وتوقيعي سليم، ولم أنفق هذه العملة من قبل."</span>
+            <span className="text-إيثيريوم font-bold">"أنا أملك مفتاحاً صحيحاً (Spending Key) يخولني لصرف هذا المبلغ، وتوقيعي سليم، ولم أنفق هذه العملة من قبل."</span>
             <br/>
             وتقوم الشبكة بالتحقق من صحة هذا "الإثبات" والموافقة عليه، دون أن تعرف الشبكة من هو صاحب المفتاح، أو لمن أرسل، أو كم أرسل.
         </p>
@@ -630,8 +630,8 @@ export const LessonTwo: React.FC<LessonProps> = ({onComplete, isCompleted, userN
 
       <Section title="المكونات الأساسية لـ zk-SNARK">
           <div className="grid gap-4">
-              <div className="bg-gray-800 p-4 rounded-xl border-r-4 border-zcash">
-                  <h4 className="text-white font-bold mb-2 flex items-center gap-2"><Key size={20} className="text-zcash"/> Proving Key (مفتاح الإثبات)</h4>
+              <div className="bg-gray-800 p-4 rounded-xl border-r-4 border-إيثيريوم">
+                  <h4 className="text-white font-bold mb-2 flex items-center gap-2"><Key size={20} className="text-إيثيريوم"/> Proving Key (مفتاح الإثبات)</h4>
                   <p className="text-sm text-gray-400">يستخدمه المرسل لإنشاء "الإثبات" بناءً على البيانات السرية التي يملكها.</p>
               </div>
               <div className="bg-gray-800 p-4 rounded-xl border-r-4 border-blue-500">
@@ -645,7 +645,7 @@ export const LessonTwo: React.FC<LessonProps> = ({onComplete, isCompleted, userN
           </div>
       </Section>
 
-      <ZkProofGame />
+      <SecurityDemo />
 
       <Section title="الحوض المحمي (The Shielded Pool)">
         <p>
@@ -654,7 +654,7 @@ export const LessonTwo: React.FC<LessonProps> = ({onComplete, isCompleted, userN
       </Section>
 
       <KeyTakeaway>
-          Zcash لا تخفي المعاملة عن طريق "كلمة سر" (Wallet Password)، بل تستخدم رياضيات معقدة (zk-SNARKs) لإنشاء دليل قاطع على أن المعاملة صحيحة، مع إبقاء بيانات المرسل والمستقبل مشفرة تماماً.
+          إيثيريوم لا تخفي المعاملة عن طريق "كلمة سر" (Wallet Password)، بل تستخدم رياضيات معقدة (Blockchain Security) لإنشاء دليل قاطع على أن المعاملة صحيحة، مع إبقاء بيانات المرسل والمستقبل مشفرة تماماً.
       </KeyTakeaway>
 
       <LessonQuiz 
@@ -671,7 +671,7 @@ export const LessonThree: React.FC<LessonProps> = ({onComplete, isCompleted, use
     return (
       <div className="animate-fadeIn text-right max-w-3xl mx-auto pb-20">
         <Section title="ما الذي يتم إخفاؤه بالضبط؟">
-            <p>عندما تستخدم معاملة محمية (Shielded Transaction) في Zcash، يتم تشفير البيانات الحساسة بالكامل ولا يراها أحد على البلوكشين، بينما تظل بعض البيانات التقنية ظاهرة لعمل الشبكة:</p>
+            <p>عندما تستخدم معاملة محمية (Shielded Transaction) في إيثيريوم، يتم تشفير البيانات الحساسة بالكامل ولا يراها أحد على البلوكشين، بينما تظل بعض البيانات التقنية ظاهرة لعمل الشبكة:</p>
             <div className="grid grid-cols-2 gap-4 my-4">
                 <div className="bg-gray-800 p-4 rounded border-t-4 border-green-500">
                     <h4 className="font-bold text-green-400 mb-2 flex items-center gap-2"><Check size={18}/> ما يتم إخفاؤه (الخصوصية):</h4>
@@ -694,9 +694,9 @@ export const LessonThree: React.FC<LessonProps> = ({onComplete, isCompleted, use
             </div>
         </Section>
 
-        <Section title="لغة العناوين في Zcash">
+        <Section title="لغة العناوين في إيثيريوم">
            <p>
-               على عكس البنوك التي تستخدم أرقام حسابات (IBAN) متشابهة، Zcash لديها أنواع عناوين مختلفة تحدد مستوى الخصوصية الذي تريده. فهم هذه الأنواع هو مفتاح استخدام العملة بشكل صحيح:
+               على عكس البنوك التي تستخدم أرقام حسابات (IBAN) متشابهة، إيثيريوم لديها أنواع عناوين مختلفة تحدد مستوى الخصوصية الذي تريده. فهم هذه الأنواع هو مفتاح استخدام العملة بشكل صحيح:
            </p>
            <ul className="space-y-4 mt-6 text-sm text-gray-300">
                <li className="bg-gray-800 p-6 rounded-lg border-r-4 border-red-500 shadow-lg">
@@ -706,7 +706,7 @@ export const LessonThree: React.FC<LessonProps> = ({onComplete, isCompleted, use
                    </div>
                    <p>يعمل تماماً مثل Bitcoin. الرصيد والمعاملات مكشوفة للجميع على البلوكشين. يُستخدم غالباً من قبل المنصات القديمة.</p>
                </li>
-               <li className="bg-gray-800 p-6 rounded-lg border-r-4 border-zcash shadow-lg">
+               <li className="bg-gray-800 p-6 rounded-lg border-r-4 border-إيثيريوم shadow-lg">
                    <div className="flex justify-between items-center mb-2">
                         <strong className="text-white text-lg">Z-Address (المحمي)</strong>
                         <span className="bg-yellow-900 text-yellow-200 text-xs px-2 py-1 rounded">يبدأ بـ zs...</span>
@@ -729,7 +729,7 @@ export const LessonThree: React.FC<LessonProps> = ({onComplete, isCompleted, use
         
         <Section title="الملاحظات المشفرة (Encrypted Memos)">
             <p>
-                ميزة رائعة في Zcash هي القدرة على إرفاق رسالة نصية مع المعاملة. في البنوك والبيتكوين، هذه الرسائل قد تكون مكشوفة. في Zcash المحمية، هذه الرسائل مشفرة تماماً ولا يقرؤها إلا المستلم. يمكنك استخدامها لإرسال رقم فاتورة، رسالة شكر، أو حتى ملاحظات شخصية بأمان تام.
+                ميزة رائعة في إيثيريوم هي القدرة على إرفاق رسالة نصية مع المعاملة. في البنوك والبيتكوين، هذه الرسائل قد تكون مكشوفة. في إيثيريوم المحمية، هذه الرسائل مشفرة تماماً ولا يقرؤها إلا المستلم. يمكنك استخدامها لإرسال رقم فاتورة، رسالة شكر، أو حتى ملاحظات شخصية بأمان تام.
             </p>
         </Section>
 
@@ -752,7 +752,7 @@ export const LessonFour: React.FC<LessonProps> = ({onComplete, isCompleted, user
         <div className="animate-fadeIn text-right max-w-3xl mx-auto pb-20">
             <Section title="قصة التطور التقني">
                 <p>
-                    مثل أي برنامج كمبيوتر، مرت Zcash بمراحل تطوير هائلة. الهدف دائماً كان: <span className="text-zcash font-bold">جعل الخصوصية أسرع وأسهل للجميع.</span>
+                    مثل أي برنامج كمبيوتر، مرت إيثيريوم بمراحل تطوير هائلة. الهدف دائماً كان: <span className="text-إيثيريوم font-bold">جعل الخصوصية أسرع وأسهل للجميع.</span>
                 </p>
             </Section>
 
@@ -774,11 +774,11 @@ export const LessonFour: React.FC<LessonProps> = ({onComplete, isCompleted, user
 
                 <div className="relative z-10 mr-0">
                     <div className="flex items-center gap-4 mb-2">
-                        <div className="w-8 h-8 rounded-full bg-zcash border-2 border-white flex items-center justify-center shrink-0 text-black font-bold shadow-[0_0_15px_#F4B728]">2</div>
+                        <div className="w-8 h-8 rounded-full bg-إيثيريوم border-2 border-white flex items-center justify-center shrink-0 text-black font-bold shadow-[0_0_15px_#3B82F6]">2</div>
                         <h3 className="text-xl font-bold text-white">Sapling (نقطة التحول - 2018)</h3>
                     </div>
-                    <div className="mr-12 bg-gray-800 p-4 rounded-xl border border-zcash/50 shadow-lg">
-                        <p className="text-sm text-white mb-2">الجيل الذي جعل Zcash عملية للاستخدام اليومي.</p>
+                    <div className="mr-12 bg-gray-800 p-4 rounded-xl border border-إيثيريوم/50 shadow-lg">
+                        <p className="text-sm text-white mb-2">الجيل الذي جعل إيثيريوم عملية للاستخدام اليومي.</p>
                         <ul className="text-xs text-gray-300 list-disc list-inside">
                             <li>العناوين تبدأ بـ <strong>zs...</strong></li>
                             <li className="text-green-400">سريع جداً (ثواني معدودة).</li>
@@ -874,7 +874,7 @@ export const LessonFive: React.FC<LessonProps> = ({onComplete, isCompleted, user
                         <div>
                             <h4 className="font-bold text-white">1. محافظ ساخنة (Hot Wallets)</h4>
                             <p className="text-xs text-gray-400 mt-1">تطبيقات على الهاتف أو الكمبيوتر متصلة بالإنترنت. سهلة الاستخدام ومناسبة للمصروف اليومي.</p>
-                            <p className="text-xs text-zcash mt-1 font-mono">أمثلة: Zashi, Nighthawk, YWallet</p>
+                            <p className="text-xs text-إيثيريوم mt-1 font-mono">أمثلة: Zashi, Nighthawk, YWallet</p>
                         </div>
                     </div>
                     
@@ -883,7 +883,7 @@ export const LessonFive: React.FC<LessonProps> = ({onComplete, isCompleted, user
                         <div>
                             <h4 className="font-bold text-white">2. محافظ باردة (Cold Wallets)</h4>
                             <p className="text-xs text-gray-400 mt-1">أجهزة صغيرة تشبه الفلاش ميموري. مفاتيحك لا تلمس الإنترنت أبداً. الأفضل للمبالغ الكبيرة.</p>
-                            <p className="text-xs text-zcash mt-1 font-mono">أمثلة: Ledger, Trezor</p>
+                            <p className="text-xs text-إيثيريوم mt-1 font-mono">أمثلة: Ledger, Trezor</p>
                         </div>
                     </div>
 
@@ -904,7 +904,7 @@ export const LessonFive: React.FC<LessonProps> = ({onComplete, isCompleted, user
                         <span className="text-red-500 font-bold">1.</span>
                         <div>
                             <strong className="text-white block">المواقع المزيفة (Phishing)</strong>
-                            تأكد دائماً من الرابط. المحتالون ينشئون مواقع تشبه الأصلية تماماً (مثلاً zcash.co بدلاً من zcash.com) لسرقة كلماتك.
+                            تأكد دائماً من الرابط. المحتالون ينشئون مواقع تشبه الأصلية تماماً (مثلاً إيثيريوم.co بدلاً من إيثيريوم.com) لسرقة كلماتك.
                         </div>
                     </li>
                     <li className="flex items-start gap-2">
@@ -919,7 +919,7 @@ export const LessonFive: React.FC<LessonProps> = ({onComplete, isCompleted, user
                         <span className="text-red-500 font-bold">3.</span>
                         <div>
                             <strong className="text-white block">عروض "المضاعفة"</strong>
-                            "أرسل لي 1 ZEC وسأعيدها لك 2 ZEC". هذه كذبة قديمة ومستمرة. لا أحد يوزع المال مجاناً.
+                            "أرسل لي 1 ETH وسأعيدها لك 2 ETH". هذه كذبة قديمة ومستمرة. لا أحد يوزع المال مجاناً.
                         </div>
                     </li>
                 </ul>
@@ -945,7 +945,7 @@ export const LessonFive: React.FC<LessonProps> = ({onComplete, isCompleted, user
             <KeyTakeaway>
                 الفرق بين البنك والعملات الرقمية:
                 في البنك، إذا نسيت كلمة السر، الموظف يساعدك.
-                في Zcash، <strong>أنت البنك</strong>. إذا ضاعت المفاتيح، ضاعت الخزنة.
+                في إيثيريوم، <strong>أنت البنك</strong>. إذا ضاعت المفاتيح، ضاعت الخزنة.
             </KeyTakeaway>
 
             <LessonQuiz 
@@ -963,10 +963,10 @@ export const LessonSix: React.FC<LessonProps> = ({onComplete, isCompleted, userN
         <div className="animate-fadeIn text-right max-w-3xl mx-auto pb-20">
             <Section title="الشفافية الاختيارية: الحل الوسط الذكي">
                 <p>
-                    يعتقد البعض خطأً أن Zcash صممت لتكون "سرية" لتسهيل الأمور غير القانونية. هذا غير صحيح. Zcash صممت لتكون "خاصة" لحماية الأبرياء، لكنها توفر أدوات قوية للامتثال والشفافية عند الحاجة.
+                    يعتقد البعض خطأً أن إيثيريوم صممت لتكون "سرية" لتسهيل الأمور غير القانونية. هذا غير صحيح. إيثيريوم صممت لتكون "خاصة" لحماية الأبرياء، لكنها توفر أدوات قوية للامتثال والشفافية عند الحاجة.
                 </p>
                 <p>
-                    تخيل أنك شركة تستخدم Zcash. تريد أن تبقى معاملاتك سرية عن المنافسين (خصوصية)، لكنك تحتاج أن تثبت دخلك لمصلحة الضرائب أو للمدقق المالي (شفافية). كيف تحل هذه المعضلة؟
+                    تخيل أنك شركة تستخدم إيثيريوم. تريد أن تبقى معاملاتك سرية عن المنافسين (خصوصية)، لكنك تحتاج أن تثبت دخلك لمصلحة الضرائب أو للمدقق المالي (شفافية). كيف تحل هذه المعضلة؟
                 </p>
             </Section>
 
@@ -989,7 +989,7 @@ export const LessonSix: React.FC<LessonProps> = ({onComplete, isCompleted, userN
 
             <Section title="مفتاح المشاهدة (Viewing Key)">
                 <p>
-                    باستخدام مفتاح المشاهدة، يمكنك كشف تاريخ معاملاتك لطرف ثالث (مثل مدقق حسابات) دون تعريض أموالك للخطر. هذا يثبت أن الخصوصية في Zcash مرنة وليست عائقاً أمام القانون.
+                    باستخدام مفتاح المشاهدة، يمكنك كشف تاريخ معاملاتك لطرف ثالث (مثل مدقق حسابات) دون تعريض أموالك للخطر. هذا يثبت أن الخصوصية في إيثيريوم مرنة وليست عائقاً أمام القانون.
                 </p>
             </Section>
 
@@ -1026,7 +1026,7 @@ export const LessonEight: React.FC<LessonProps> = ({onComplete, isCompleted, use
                                 <li>إنشاء <strong>Commitment</strong> (التزام مشفر بالقيمة).</li>
                                 <li>تشفير البيانات للمستلم فقط (Encrypted Memo).</li>
                             </ul>
-                            <p className="text-xs text-zcash font-bold mt-2">🔒 لا تغادر بياناتك الحقيقية هاتفك أبداً!</p>
+                            <p className="text-xs text-إيثيريوم font-bold mt-2">🔒 لا تغادر بياناتك الحقيقية هاتفك أبداً!</p>
                         </div>
                     </div>
 
@@ -1107,21 +1107,21 @@ export const LessonEight: React.FC<LessonProps> = ({onComplete, isCompleted, use
                 </div>
              </Section>
 
-             <div className="bg-zcash/10 border-l-4 border-zcash p-4 rounded-r-lg my-6">
-                <h4 className="text-zcash font-bold mb-2 flex items-center gap-2"><Lightbulb size={18}/> معلومة جوهرية</h4>
+             <div className="bg-إيثيريوم/10 border-l-4 border-إيثيريوم p-4 rounded-r-lg my-6">
+                <h4 className="text-إيثيريوم font-bold mb-2 flex items-center gap-2"><Lightbulb size={18}/> معلومة جوهرية</h4>
                 <div className="text-gray-200 text-sm">
                     <strong>أهم ما في هذه الرحلة:</strong>
                     <ul className="list-disc list-inside mt-2 space-y-1">
                         <li><strong>كل شيء يحدث محلياً (Client-Side):</strong> مفاتيحك لا تغادر جهازك أبداً.</li>
                         <li><strong>الشبكة عمياء:</strong> المعدنون يرون فقط "إثباتاً رياضياً" بأن المعاملة صحيحة، ولا يعرفون من أرسل لمن.</li>
-                        <li><strong>عكس البنوك:</strong> في البنك، السيرفر يرى كل شيء. في Zcash، الرياضيات تحميك من الجميع.</li>
+                        <li><strong>عكس البنوك:</strong> في البنك، السيرفر يرى كل شيء. في إيثيريوم، الرياضيات تحميك من الجميع.</li>
                     </ul>
                 </div>
             </div>
 
              <LessonQuiz 
                 question="من يستطيع رؤية تفاصيل المعاملة المحمية (المبلغ والمرسل)؟"
-                options={["المعدنون (Miners)", "شركة Zcash", "لا أحد سوى أطراف المعاملة (المرسل والمستلم)", "جميع مستخدمي الإنترنت"]}
+                options={["المعدنون (Miners)", "شركة إيثيريوم", "لا أحد سوى أطراف المعاملة (المرسل والمستلم)", "جميع مستخدمي الإنترنت"]}
                 correctIndex={2}
                 onComplete={onComplete}
             />
@@ -1134,7 +1134,7 @@ export const LessonNine: React.FC<LessonProps> = ({onComplete, isCompleted, user
         <div className="animate-fadeIn text-right max-w-3xl mx-auto pb-20">
             <Section title="البلوكشين: دفتر السجلات الأبدي">
                 <p>
-                    لفهم Zcash، يجب أن نفهم الأساس الذي بنيت عليه: <strong>البلوكشين (Blockchain)</strong>.
+                    لفهم إيثيريوم، يجب أن نفهم الأساس الذي بنيت عليه: <strong>البلوكشين (Blockchain)</strong>.
                 </p>
                 <p>
                     تخيل البلوكشين كأنه "دفتر حسابات" عملاق ومشترك.
@@ -1156,8 +1156,8 @@ export const LessonNine: React.FC<LessonProps> = ({onComplete, isCompleted, user
                 <p className="mb-4">
                     <strong>Bitcoin:</strong> هو دفتر مفتوح. أي شخص يمكنه قراءة أي سطر: "حساب أ أرسل 5 عملات لحساب ب". شفافية كاملة.
                 </p>
-                <div className="bg-gray-800 p-4 rounded-xl border border-zcash/50">
-                    <strong className="text-zcash block mb-2">Zcash (المحمية):</strong>
+                <div className="bg-gray-800 p-4 rounded-xl border border-إيثيريوم/50">
+                    <strong className="text-إيثيريوم block mb-2">إيثيريوم (المحمية):</strong>
                     <p className="text-sm text-gray-300">
                         تستخدم نفس تقنية البلوكشين القوية، لكن في المعاملات المحمية، <span className="text-white font-bold">لا تُسجل التفاصيل نفسها</span>، بل يُسجل <span className="text-white font-bold">"إثبات رياضي" (zk-SNARK Proof)</span> يؤكد صحة المعاملة دون كشف المرسل أو المستلم أو المبلغ.
                     </p>
@@ -1170,7 +1170,7 @@ export const LessonNine: React.FC<LessonProps> = ({onComplete, isCompleted, user
             <VisualBlockchain />
             
             <LessonQuiz 
-                question="ما الذي يتم تسجيله في البلوكشين العام عند إجراء معاملة Zcash محمية؟"
+                question="ما الذي يتم تسجيله في البلوكشين العام عند إجراء معاملة إيثيريوم محمية؟"
                 options={["اسم المرسل والمستلم بوضوح", "إثبات رياضي (Proof) يؤكد الصحة دون كشف البيانات", "لا يتم تسجيل شيء إطلاقاً", "صورة للمحفظة"]}
                 correctIndex={1}
                 onComplete={onComplete}
@@ -1189,7 +1189,7 @@ export const LessonTen: React.FC<LessonProps> = ({onComplete, isCompleted, userN
         <div className="animate-fadeIn text-right max-w-3xl mx-auto pb-20">
              <Section title="التطبيق العملي: لنجرب بأنفسنا!">
                 <p>
-                    الآن بعد أن فهمت النظرية، حان وقت التجربة. قمنا بتصميم "محاكي محفظة" لتعيش تجربة إنشاء حساب واستخدام Zcash دون أي مخاطرة.
+                    الآن بعد أن فهمت النظرية، حان وقت التجربة. قمنا بتصميم "محاكي محفظة" لتعيش تجربة إنشاء حساب واستخدام إيثيريوم دون أي مخاطرة.
                 </p>
                 <div className="bg-yellow-900/20 border border-yellow-500/50 p-4 rounded mb-6">
                     <p className="text-yellow-400 font-bold flex items-center gap-2"><Info/> ملاحظة:</p>
@@ -1206,7 +1206,7 @@ export const LessonTen: React.FC<LessonProps> = ({onComplete, isCompleted, userN
                      
                      {screen === 'welcome' && (
                          <div className="flex-1 flex flex-col items-center justify-center p-6 text-center space-y-6">
-                             <div className="w-20 h-20 bg-zcash rounded-full flex items-center justify-center mb-4 shadow-[0_0_20px_#F4B728]">
+                             <div className="w-20 h-20 bg-إيثيريوم rounded-full flex items-center justify-center mb-4 shadow-[0_0_20px_#3B82F6]">
                                 <ShieldCheck size={40} className="text-black"/>
                              </div>
                              <h3 className="text-2xl font-bold">مرحباً بك في Z-Wallet</h3>
@@ -1220,7 +1220,7 @@ export const LessonTen: React.FC<LessonProps> = ({onComplete, isCompleted, userN
                          <div className="flex-1 flex flex-col p-6 text-center">
                              <h3 className="text-xl font-bold mb-4">جارٍ الإنشاء...</h3>
                              <div className="flex-1 flex items-center justify-center">
-                                 <RefreshCw className="animate-spin text-zcash" size={40} />
+                                 <RefreshCw className="animate-spin text-إيثيريوم" size={40} />
                              </div>
                              <p className="text-xs text-gray-500">نقوم بتوليد مفاتيح التشفير الخاصة بك...</p>
                              {setTimeout(() => setScreen('seed'), 2000) && null}
@@ -1242,7 +1242,7 @@ export const LessonTen: React.FC<LessonProps> = ({onComplete, isCompleted, userN
                                 <p className="text-[10px] text-red-200 font-bold">⚠️ تحذير: هذه كلمات تجريبية فقط! لا تستخدمها أبداً لمحفظة حقيقية.</p>
                              </div>
 
-                             <button onClick={() => setScreen('home')} className="w-full bg-zcash text-black py-3 rounded-xl font-bold mt-auto">نسختها، تابع</button>
+                             <button onClick={() => setScreen('home')} className="w-full bg-إيثيريوم text-black py-3 rounded-xl font-bold mt-auto">نسختها، تابع</button>
                          </div>
                      )}
 
@@ -1256,7 +1256,7 @@ export const LessonTen: React.FC<LessonProps> = ({onComplete, isCompleted, userN
 
                              <div className="bg-gradient-to-br from-gray-800 to-black p-6 rounded-2xl border border-gray-700 shadow-xl mb-8 text-center">
                                  <p className="text-gray-400 text-sm mb-1">الرصيد الكلي</p>
-                                 <h2 className="text-4xl font-bold text-white mb-1">{balance.toFixed(4)} <span className="text-sm text-zcash">ZEC</span></h2>
+                                 <h2 className="text-4xl font-bold text-white mb-1">{balance.toFixed(4)} <span className="text-sm text-إيثيريوم">ETH</span></h2>
                                  <p className="text-xs text-green-500">≈ ${(balance * 30).toFixed(2)} USD</p>
                              </div>
 
@@ -1276,7 +1276,7 @@ export const LessonTen: React.FC<LessonProps> = ({onComplete, isCompleted, userN
                      {screen === 'receive' && (
                          <div className="flex-1 flex flex-col p-6 text-center">
                              <button onClick={() => setScreen('home')} className="absolute top-4 left-4"><ArrowLeft/></button>
-                             <h3 className="font-bold mb-6 mt-4">استلام ZEC</h3>
+                             <h3 className="font-bold mb-6 mt-4">استلام ETH</h3>
                              
                              <div className="bg-white p-4 rounded-xl mx-auto mb-4">
                                  <QrCode size={120} className="text-black"/>
@@ -1285,7 +1285,7 @@ export const LessonTen: React.FC<LessonProps> = ({onComplete, isCompleted, userN
                              <p className="text-xs text-gray-500 mb-2">عنوانك الموحد (Unified Address)</p>
                              <div className="bg-gray-800 p-3 rounded-lg flex items-center justify-between text-xs text-gray-300 font-mono mb-6">
                                  <span className="truncate">u1...8x9z...2m4k</span>
-                                 <Copy size={14} className="text-zcash"/>
+                                 <Copy size={14} className="text-إيثيريوم"/>
                              </div>
 
                              <button 
@@ -1299,7 +1299,7 @@ export const LessonTen: React.FC<LessonProps> = ({onComplete, isCompleted, userN
                                 }} 
                                 className="w-full bg-green-600 text-white py-3 rounded-xl font-bold mt-auto"
                              >
-                                 محاكاة وصول دفعة (2.5 ZEC)
+                                 محاكاة وصول دفعة (2.5 ETH)
                              </button>
                          </div>
                      )}
@@ -1318,7 +1318,7 @@ export const LessonTen: React.FC<LessonProps> = ({onComplete, isCompleted, userN
                                  <label className="text-xs text-gray-500">المبلغ:</label>
                                  <div className="flex items-center gap-2">
                                     <input type="number" placeholder="0.0" className="w-full bg-transparent border-b border-gray-600 focus:outline-none py-2 text-2xl font-bold"/>
-                                    <span className="text-zcash font-bold">ZEC</span>
+                                    <span className="text-إيثيريوم font-bold">ETH</span>
                                  </div>
                              </div>
 
@@ -1341,8 +1341,8 @@ export const LessonTen: React.FC<LessonProps> = ({onComplete, isCompleted, userN
                     {screen === 'processing' && (
                         <div className="flex-1 flex flex-col items-center justify-center p-6 text-center space-y-4 bg-black/90 absolute inset-0 z-50">
                             <div className="relative">
-                                <div className="absolute inset-0 bg-zcash blur-xl opacity-20 animate-pulse"></div>
-                                <ShieldCheck size={60} className="text-zcash relative z-10 animate-bounce"/>
+                                <div className="absolute inset-0 bg-إيثيريوم blur-xl opacity-20 animate-pulse"></div>
+                                <ShieldCheck size={60} className="text-إيثيريوم relative z-10 animate-bounce"/>
                             </div>
                             <h3 className="text-xl font-bold text-white">جاري المعالجة بخصوصية...</h3>
                             

@@ -6,11 +6,16 @@ import GamesHub from './components/ShieldGame';
 import { LessonZero, LessonOne, LessonTwo, LessonThree, LessonFour, LessonFive, LessonSix, LessonEight, LessonNine, LessonTen } from './components/Lessons';
 import { AuthService } from './services/db';
 import Articles from './components/Articles';
-import AdminDashboard from './components/AdminDashboard';
+import SecurityDashboard from './components/Security/SecurityDashboard';
+import UserDashboard from './components/UserDashboard';
 
-// --- OFFICIAL ZCASH ARABIA LOGO ---
-const ZcashLogo = ({ className }: { className?: string }) => (
-    <img src="/logo.png" alt="Zcash Arabia" className={className} />
+const EthLogo = ({ className }: { className?: string }) => (
+    <div className={`flex items-center justify-center ${className}`}>
+        <div className="relative w-full h-full">
+            <Shield className="w-full h-full text-blue-500 animate-pulse" />
+            <Sparkles className="absolute -top-1 -right-1 w-1/3 h-1/3 text-yellow-400" />
+        </div>
+    </div>
 );
 
 // --- INTERACTIVE NETWORK BACKGROUND ---
@@ -505,16 +510,16 @@ const App: React.FC = () => {
 
     // LESSONS DEFINITIONS
     const lessons: Lesson[] = [
-        { id: 'l0', title: 'الدرس 1: ما هي تقنية البلوكتشين؟', description: 'مقدمة شاملة عن الكتل، الهاش، وكيفية عمل السلاسل.', difficulty: 'مبتدئ', duration: '7 دقائق', content: (onComplete, isCompleted, userName) => <LessonZero onComplete={onComplete} isCompleted={isCompleted} userName={userName} /> },
-        { id: 'l1', title: 'الدرس 2: ما هي Zcash؟', description: 'تعريف Zcash، أنواع العناوين، وتقنية zk-SNARKs.', difficulty: 'مبتدئ', duration: '8 دقائق', content: (onComplete, isCompleted, userName) => <LessonOne onComplete={onComplete} isCompleted={isCompleted} userName={userName} /> },
-        { id: 'l2', title: 'الدرس 3: كيف تعمل؟ (zk-SNARKs)', description: 'شرح مبسط لتقنية إثبات المعرفة الصفرية.', difficulty: 'متوسط', duration: '8 دقائق', content: (onComplete, isCompleted, userName) => <LessonTwo onComplete={onComplete} isCompleted={isCompleted} userName={userName} /> },
-        { id: 'l3', title: 'الدرس 4: العناوين والمراسلات', description: 'أنواع العناوين (T, Z, U) والملاحظات المشفرة.', difficulty: 'مبتدئ', duration: '6 دقائق', content: (onComplete, isCompleted, userName) => <LessonThree onComplete={onComplete} isCompleted={isCompleted} userName={userName} /> },
-        { id: 'l4', title: 'الدرس 5: تطور البروتوكول', description: 'قصة تطور Zcash من Sprout إلى Sapling ثم Orchard.', difficulty: 'متوسط', duration: '6 دقائق', content: (onComplete, isCompleted, userName) => <LessonFour onComplete={onComplete} isCompleted={isCompleted} userName={userName} /> },
-        { id: 'l9', title: 'الدرس 6: دفتر السجلات (Ledger)', description: 'الفرق التقني بين البلوكشين الشفاف والمشفر.', difficulty: 'متوسط', duration: '5 دقائق', content: (onComplete, isCompleted, userName) => <LessonNine onComplete={onComplete} isCompleted={isCompleted} userName={userName} /> },
+        { id: 'l0', title: 'الدرس 1: ما هي تقنية البولوكتشين؟', description: 'مقدمة شاملة عن الكتل، الهاش، وكيفية عمل السلاسل.', difficulty: 'مبتدئ', duration: '7 دقائق', content: (onComplete, isCompleted, userName) => <LessonZero onComplete={onComplete} isCompleted={isCompleted} userName={userName} /> },
+        { id: 'l1', title: 'الدرس 2: ما هي إيثيريوم؟', description: 'تعريف شبكة إيثيريوم، العملات، والعقود الذكية.', difficulty: 'مبتدئ', duration: '8 دقائق', content: (onComplete, isCompleted, userName) => <LessonOne onComplete={onComplete} isCompleted={isCompleted} userName={userName} /> },
+        { id: 'l2', title: 'الدرس 3: الخصوصية والأمان', description: 'شرح مبسط لتقنيات حماية البيانات في البلوكشين.', difficulty: 'متوسط', duration: '8 دقائق', content: (onComplete, isCompleted, userName) => <LessonTwo onComplete={onComplete} isCompleted={isCompleted} userName={userName} /> },
+        { id: 'l3', title: 'الدرس 4: العناوين والمعاملات', description: 'كيفية قراءة العناوين وإرسال المعاملات بأمان.', difficulty: 'مبتدئ', duration: '6 دقائق', content: (onComplete, isCompleted, userName) => <LessonThree onComplete={onComplete} isCompleted={isCompleted} userName={userName} /> },
+        { id: 'l4', title: 'الدرس 5: تطور الشبكة', description: 'رحلة إيثيريوم من البداية إلى الانتقال لإثبات الحصة.', difficulty: 'متوسط', duration: '6 دقائق', content: (onComplete, isCompleted, userName) => <LessonFour onComplete={onComplete} isCompleted={isCompleted} userName={userName} /> },
+        { id: 'l9', title: 'الدرس 6: دفتر السجلات (Ledger)', description: 'الفرق التقني بين الأنظمة الشفافة والمشفرة.', difficulty: 'متوسط', duration: '5 دقائق', content: (onComplete, isCompleted, userName) => <LessonNine onComplete={onComplete} isCompleted={isCompleted} userName={userName} /> },
         { id: 'l8', title: 'الدرس 7: رحلة المعاملة', description: 'ماذا يحدث خلف الكواليس عند الضغط على إرسال؟', difficulty: 'مبتدئ', duration: '6 دقائق', content: (onComplete, isCompleted, userName) => <LessonEight onComplete={onComplete} isCompleted={isCompleted} userName={userName} /> },
         { id: 'l5', title: 'الدرس 8: المحفظة والأمان', description: 'أنواع المحافظ، كلمات الاسترجاع، وكيف تحمي أموالك.', difficulty: 'مبتدئ', duration: '7 دقائق', content: (onComplete, isCompleted, userName) => <LessonFive onComplete={onComplete} isCompleted={isCompleted} userName={userName} /> },
-        { id: 'l6', title: 'الدرس 9: الشفافية الاختيارية', description: 'كيف تكشف بياناتك طوعياً (Viewing Keys).', difficulty: 'متوسط', duration: '6 دقائق', content: (onComplete, isCompleted, userName) => <LessonSix onComplete={onComplete} isCompleted={isCompleted} userName={userName} /> },
-        { id: 'l10', title: 'الدرس 10: المحاكاة العملية', description: 'جرب إنشاء محفظة واستلام وإرسال ZEC بنفسك.', difficulty: 'مبتدئ', duration: '10 دقائق', content: (onComplete, isCompleted, userName) => <LessonTen onComplete={onComplete} isCompleted={isCompleted} userName={userName} /> }
+        { id: 'l6', title: 'الدرس 9: العقود الذكية', description: 'كيف تبرمج إيثيريوم لتنفيذ المهام تلقائياً.', difficulty: 'متوسط', duration: '6 دقائق', content: (onComplete, isCompleted, userName) => <LessonSix onComplete={onComplete} isCompleted={isCompleted} userName={userName} /> },
+        { id: 'l10', title: 'الدرس 10: المحاكاة العملية', description: 'جرب استخدام محفظة إيثيريوم افتراضية بنفسك.', difficulty: 'مبتدئ', duration: '10 دقائق', content: (onComplete, isCompleted, userName) => <LessonTen onComplete={onComplete} isCompleted={isCompleted} userName={userName} /> }
     ];
 
     const renderContent = () => {
@@ -523,15 +528,15 @@ const App: React.FC = () => {
                 return (
                     <div className="max-w-4xl mx-auto text-center space-y-12 py-10 relative z-10">
                         <div className="space-y-6 animate-fade-in-up">
-                            <div className="flex justify-center mb-6"><ZcashLogo className="w-48 h-48 drop-shadow-[0_0_30px_rgba(244,183,40,0.4)] animate-float" /></div>
-                            <h1 className="text-5xl md:text-7xl font-black text-white tracking-tight drop-shadow-lg">أكاديمية <span className="text-zcash">Zcash</span></h1>
-                            <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed font-light">المنصة العربية الأولى للتعلم حول Zcash بطريقة تفاعلية ومبتكرة.</p>
+                            <div className="flex justify-center mb-6"><EthLogo className="w-48 h-48 drop-shadow-[0_0_30px_rgba(59,130,246,0.4)] animate-float" /></div>
+                            <h1 className="text-5xl md:text-7xl font-black text-white tracking-tight drop-shadow-lg">أكاديمية <span className="text-blue-500">إيثريوم العرب</span></h1>
+                            <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed font-light">المنصة العربية الأولى للأمن والخصوصية في شبكة إيثيريوم.</p>
 
                             {user ? (
                                 <div className="bg-gray-800/80 backdrop-blur p-6 rounded-2xl border border-gray-600 inline-block shadow-xl mt-8">
                                     <p className="text-gray-300 text-lg">مرحباً <span className="text-white font-bold">{user.name}</span> 👋</p>
                                     <div className="flex items-center justify-center gap-4 mt-3">
-                                        <span className="bg-zcash/20 text-zcash px-4 py-1.5 rounded-full text-sm font-bold border border-zcash/30">{user.totalScore} نقطة</span>
+                                        <span className="bg-blue-500/20 text-blue-400 px-4 py-1.5 rounded-full text-sm font-bold border border-blue-500/30">{user.totalScore} نقطة</span>
                                         <span className="text-sm text-gray-400">{(user.completedLessons || []).length} / {lessons.length} درس</span>
                                     </div>
                                 </div>
@@ -539,7 +544,7 @@ const App: React.FC = () => {
                                 <div className="bg-blue-900/30 backdrop-blur p-4 rounded-xl border border-blue-500/30 inline-block animate-pulse mt-8"><p className="text-blue-200 text-sm">👋 أنت تتصفح كضيف. سجل الدخول لحفظ تقدمك.</p></div>
                             )}
                             <div className="flex flex-wrap justify-center gap-4 pt-8">
-                                <button onClick={() => setCurrentView(View.LESSON)} className="bg-zcash hover:bg-zcash-dark text-black font-bold py-4 px-10 rounded-xl text-xl flex items-center gap-3 transition-all hover:scale-105 shadow-[0_0_20px_rgba(244,183,40,0.4)]"><BookOpen size={24} />{user && (user.completedLessons || []).length > 0 ? 'تابع مسار التعلم' : 'ابدأ الرحلة الآن'}</button>
+                                <button onClick={() => setCurrentView(View.LESSON)} className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-10 rounded-xl text-xl flex items-center gap-3 transition-all hover:scale-105 shadow-[0_0_20px_rgba(59,130,246,0.4)]"><BookOpen size={24} />{user && (user.completedLessons || []).length > 0 ? 'تابع مسار التعلم' : 'ابدأ الرحلة الآن'}</button>
                                 <button onClick={() => setCurrentView(View.GAME)} className="bg-gray-800/80 backdrop-blur hover:bg-gray-700 text-white font-bold py-4 px-10 rounded-xl text-xl flex items-center gap-3 border border-gray-600 transition-all hover:scale-105"><Gamepad2 size={24} />مختبر الألعاب</button>
                             </div>
                         </div>
@@ -627,9 +632,13 @@ const App: React.FC = () => {
                 return <Articles />;
 
             case View.ADMIN:
-                // Simple protection: only allow if user has 'admin' in email or just allow for now
-                // In a real app, this would be checked server-side
                 return <AdminDashboard />;
+
+            case View.SECURITY:
+                return <SecurityDashboard />;
+
+            case View.DASHBOARD:
+                return <UserDashboard user={user} onUpdateUser={setUser} />;
 
             default:
                 return <div>Page not found</div>;
@@ -645,17 +654,17 @@ const App: React.FC = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between h-16">
                         <div className="flex items-center gap-3 cursor-pointer group" onClick={() => { setCurrentView(View.HOME); setActiveLessonId(null); }}>
-                            <ZcashLogo className="w-10 h-10 transition-transform group-hover:rotate-12" />
-                            <span className="font-bold text-xl tracking-wide group-hover:text-zcash transition-colors hidden md:block">أكاديمية Zcash</span>
+                            <EthLogo className="w-10 h-10 transition-transform group-hover:rotate-12" />
+                            <span className="font-bold text-xl tracking-wide group-hover:text-blue-400 transition-colors hidden md:block">أكاديمية إيثريوم العرب</span>
                         </div>
                         <div className="flex space-x-1 space-x-reverse md:space-x-4 md:space-x-reverse items-center">
                             <NavButton active={currentView === View.LESSON} onClick={() => { setCurrentView(View.LESSON); setActiveLessonId(null); }} icon={<BookOpen size={18} />} text="الدروس" />
-                            <NavButton active={currentView === View.ARTICLES} onClick={() => setCurrentView(View.ARTICLES)} icon={<FileText size={18} />} text="المقالات" />
+                            <NavButton active={currentView === View.SECURITY} onClick={() => setCurrentView(View.SECURITY)} icon={<Shield size={18} />} text="الأمان" />
                             <NavButton active={currentView === View.GAME} onClick={() => setCurrentView(View.GAME)} icon={<Gamepad2 size={18} />} text="الألعاب" />
-                            <NavButton active={currentView === View.LEADERBOARD} onClick={() => setCurrentView(View.LEADERBOARD)} icon={<Trophy size={18} />} text="الصدارة" />
+                            <NavButton active={currentView === View.DASHBOARD} onClick={() => setCurrentView(View.DASHBOARD)} icon={<UserIcon size={18} />} text="حسابي" />
                             {user ? (
                                 <div className="flex items-center gap-2 mr-2 border-r border-gray-700 pr-2">
-                                    <span className="text-sm font-bold text-zcash hidden md:block">{user.name}</span>
+                                    <span className="text-sm font-bold text-blue-400 hidden md:block">{user.name}</span>
                                     <button onClick={handleLogout} className="text-gray-400 hover:text-red-400 p-2" title="تسجيل خروج"><LogOut size={18} /></button>
                                 </div>
                             ) : (
@@ -668,7 +677,7 @@ const App: React.FC = () => {
             <main className="flex-grow p-4 md:p-8 animate-fadeIn relative z-10">{renderContent()}</main>
             <footer className="border-t border-gray-800 bg-gray-900/90 backdrop-blur-md py-6 mt-auto relative z-10">
                 <div className="max-w-7xl mx-auto px-4 text-center text-gray-500 text-sm">
-                    <p>© 2025 Zcash Arabic Academy. تعليم مجتمعي غير رسمي.</p>
+                    <p>© 2025 EtherArabia Academy. تعليم مجتمعي غير رسمي.</p>
                     <button
                         onClick={() => setCurrentView(View.ADMIN)}
                         className="mt-4 text-gray-700 hover:text-gray-500 transition-colors text-xs"

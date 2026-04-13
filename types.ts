@@ -7,7 +7,9 @@ export enum View {
   CHAT = 'CHAT',
   LEADERBOARD = 'LEADERBOARD',
   ARTICLES = 'ARTICLES',
-  ADMIN = 'ADMIN'
+  ADMIN = 'ADMIN',
+  SECURITY = 'SECURITY',
+  DASHBOARD = 'DASHBOARD'
 }
 
 export interface Article {
