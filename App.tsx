@@ -10,12 +10,7 @@ import SecurityDashboard from './components/Security/SecurityDashboard';
 import UserDashboard from './components/UserDashboard';
 
 const EthLogo = ({ className }: { className?: string }) => (
-    <div className={`flex items-center justify-center ${className}`}>
-        <div className="relative w-full h-full">
-            <Shield className="w-full h-full text-blue-500 animate-pulse" />
-            <Sparkles className="absolute -top-1 -right-1 w-1/3 h-1/3 text-yellow-400" />
-        </div>
-    </div>
+    <img src="/logo.png" alt="EtherArabia" className={className} />
 );
 
 // --- INTERACTIVE NETWORK BACKGROUND ---
