@@ -8,7 +8,7 @@ const ChatTutor: React.FC = () => {
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       role: 'model',
-      text: 'أهلاً بك! أنا زيكو 🤖، خبير Zcash الخاص بك. اسألني أي شيء عن الخصوصية، التعدين، أو كيف تعمل المحفظة!',
+      text: 'أهلاً بك! أنا زيكو 🤖، خبير Ethereum الخاص بك. اسألني أي شيء عن الخصوصية، التعدين، أو كيف تعمل المحفظة!',
       timestamp: Date.now()
     }
   ]);
@@ -45,10 +45,10 @@ const ChatTutor: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col h-[600px] w-full max-w-4xl mx-auto bg-zcash-card rounded-xl border border-gray-700 shadow-xl overflow-hidden">
+    <div className="flex flex-col h-[600px] w-full max-w-4xl mx-auto bg-eth-card rounded-xl border border-gray-700 shadow-xl overflow-hidden">
       {/* Header */}
       <div className="bg-gray-800 p-4 border-b border-gray-700 flex items-center gap-3">
-        <div className="bg-zcash p-2 rounded-full">
+        <div className="bg-eth p-2 rounded-full">
           <Bot className="text-black w-6 h-6" />
         </div>
         <div>
@@ -62,7 +62,7 @@ const ChatTutor: React.FC = () => {
         {messages.map((msg, idx) => (
           <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-start' : 'justify-end'}`}>
             <div className={`flex items-start gap-2 max-w-[80%] ${msg.role === 'user' ? 'flex-row' : 'flex-row-reverse'}`}>
-              <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 ${msg.role === 'user' ? 'bg-blue-600' : 'bg-zcash'}`}>
+              <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 ${msg.role === 'user' ? 'bg-blue-600' : 'bg-eth'}`}>
                 {msg.role === 'user' ? <User size={16} /> : <Bot size={16} className="text-black" />}
               </div>
               <div className={`p-3 rounded-2xl text-sm leading-relaxed ${
@@ -78,11 +78,11 @@ const ChatTutor: React.FC = () => {
         {isLoading && (
           <div className="flex justify-end">
             <div className="flex flex-row-reverse items-center gap-2">
-              <div className="w-8 h-8 rounded-full bg-zcash flex items-center justify-center">
+              <div className="w-8 h-8 rounded-full bg-eth flex items-center justify-center">
                 <Bot size={16} className="text-black" />
               </div>
               <div className="bg-gray-700 p-3 rounded-2xl rounded-tl-none">
-                <Loader2 className="animate-spin text-zcash" size={20} />
+                <Loader2 className="animate-spin text-eth" size={20} />
               </div>
             </div>
           </div>
@@ -98,13 +98,13 @@ const ChatTutor: React.FC = () => {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-            placeholder="اسأل عن Zcash، التعدين، أو الخصوصية..."
-            className="flex-1 bg-gray-900 border border-gray-600 text-white rounded-lg px-4 py-3 focus:outline-none focus:border-zcash focus:ring-1 focus:ring-zcash transition placeholder-gray-500"
+            placeholder="اسأل عن Ethereum، التعدين، أو الخصوصية..."
+            className="flex-1 bg-gray-900 border border-gray-600 text-white rounded-lg px-4 py-3 focus:outline-none focus:border-eth focus:ring-1 focus:ring-eth transition placeholder-gray-500"
           />
           <button 
             onClick={handleSend}
             disabled={isLoading || !input.trim()}
-            className="bg-zcash hover:bg-zcash-dark disabled:opacity-50 disabled:cursor-not-allowed text-black font-bold p-3 rounded-lg transition"
+            className="bg-eth hover:bg-eth-dark disabled:opacity-50 disabled:cursor-not-allowed text-black font-bold p-3 rounded-lg transition"
           >
             <Send size={20} />
           </button>

@@ -595,7 +595,7 @@ export const LessonOne: React.FC<LessonProps> = ({onComplete, isCompleted, userN
             <ul className="space-y-2 text-gray-300 list-disc list-inside">
                 <li><strong className="text-white">خصوصية اختيارية:</strong> المستخدم يقرر متى يستعمل الخصوصية.</li>
                 <li><strong className="text-white">شفافية مرنة:</strong> يمكن التدقيق في حالات معينة إذا رغب المستخدم.</li>
-                <li><strong className="text-white">تطور تشفيري مستمر:</strong> مشاريع وأبحاث لتحسين الكفاءة والأمان.</li>
+                <li><strong className="text-white">تطور تشفيري مستمر:</strong> مشاريع وأبحاث لتحسين الكفاءة وSecurity.</li>
             </ul>
         </Section>
 

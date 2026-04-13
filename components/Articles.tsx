@@ -88,7 +88,7 @@ const Articles: React.FC = () => {
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
                 <div>
                     <h1 className="text-4xl font-bold text-white mb-2">المقالات التعليمية</h1>
-                    <p className="text-gray-400">اكتشف كل ما هو جديد في عالم Zcash والخصوصية الرقمية</p>
+                    <p className="text-gray-400">اكتشف كل ما هو جديد في عالم Ethereum والخصوصية الرقمية</p>
                 </div>
 
                 <div className="relative">

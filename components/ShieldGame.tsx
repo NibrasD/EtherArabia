@@ -31,7 +31,7 @@ const StoryContainer: React.FC<{
                         <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
                         <p className="text-xs text-gray-400 font-mono uppercase tracking-wider flex items-center gap-2">
                             ROLE: {role}
-                            {userName && <span className="text-zcash border-l border-gray-600 pl-2 ml-2">{userName}</span>}
+                            {userName && <span className="text-eth border-l border-gray-600 pl-2 ml-2">{userName}</span>}
                         </p>
                     </div>
                 </div>
@@ -63,8 +63,8 @@ const GameIntro: React.FC<{
         )}
         <div className="bg-gray-800/50 p-6 rounded-2xl border border-gray-700 max-w-lg w-full backdrop-blur-sm shadow-xl">
             <div className="flex justify-center mb-6">
-                <div className="w-20 h-20 bg-zcash/10 rounded-full flex items-center justify-center border-2 border-zcash shadow-[0_0_30px_rgba(244,183,40,0.2)]">
-                    <FileText size={40} className="text-zcash" />
+                <div className="w-20 h-20 bg-eth/10 rounded-full flex items-center justify-center border-2 border-eth shadow-[0_0_30px_rgba(244,183,40,0.2)]">
+                    <FileText size={40} className="text-eth" />
                 </div>
             </div>
             <h3 className="text-2xl font-black text-white mb-2 tracking-tight">{mission}</h3>
@@ -82,7 +82,7 @@ const GameIntro: React.FC<{
         </div>
         <button
             onClick={onStart}
-            className="group relative px-10 py-4 bg-zcash hover:bg-white text-black font-black text-lg uppercase tracking-widest rounded-xl transition-all transform hover:-translate-y-1 shadow-[0_5px_0_rgb(180,130,0)] hover:shadow-[0_5px_0_rgb(200,200,200)] active:translate-y-0 active:shadow-none w-full max-w-xs"
+            className="group relative px-10 py-4 bg-eth hover:bg-white text-black font-black text-lg uppercase tracking-widest rounded-xl transition-all transform hover:-translate-y-1 shadow-[0_5px_0_rgb(180,130,0)] hover:shadow-[0_5px_0_rgb(200,200,200)] active:translate-y-0 active:shadow-none w-full max-w-xs"
         >
             <span className="flex items-center justify-center gap-2">ابدأ المهمة <Play size={20} className="fill-current" /></span>
         </button>
@@ -122,7 +122,7 @@ const GameResult: React.FC<{
             {score && status === 'success' && !isCompleted && (
                 <div className="mt-4 flex justify-between items-center bg-black/40 p-3 rounded border border-gray-700 animate-bounce">
                     <span className="text-gray-400 font-mono text-sm">REWARD</span>
-                    <span className="text-zcash font-bold text-xl drop-shadow-md">+{score} XP</span>
+                    <span className="text-eth font-bold text-xl drop-shadow-md">+{score} XP</span>
                 </div>
             )}
             {score && status === 'success' && isCompleted && (
@@ -192,7 +192,7 @@ const MinerGame: React.FC<{ onComplete: (s: number, id: string) => void, onExit:
                 <GameIntro
                     mission="معالجة المعاملات"
                     roleDescription=" أنت تدير عقدة كاملة تقوم بالتعدين (Miner Node). 
-في شبكة Zcash توجد عقد تحقق فقط (Full Nodes)، وهذه العقدة تحديدًا تشارك في التعدين وبناء البلوكات. 
+في شبكة Ethereum توجد عقد تحقق فقط (Full Nodes)، وهذه العقدة تحديدًا تشارك في التعدين وبناء البلوكات. 
 "                    objective="ستصلك 3 مجموعات من البيانات. قم بتحليلها واختر المجموعة الأنسب لإضافتها للبلوك القادم لتحقيق أفضل أداء وعائد."
                     onStart={() => {
                         setState('scanning');
@@ -390,7 +390,7 @@ const SenderGame: React.FC<{ onComplete: (s: number, id: string) => void, onExit
             if (privacyGood && riskOk && usabilityOk) {
                 setFinalStatus('success');
                 setFinalDesc("أعددت عملية دفع متوازنة: درجة خصوصية عالية، مخاطرة منخفضة، وتجربة مستخدم عملية.");
-                setFinalLesson("أفضل الإعدادات هي التي تستفيد من مزايا التشفير في Zcash (Z-Address) مع الحفاظ على ملاحظات آمنة ومختصرة.");
+                setFinalLesson("أفضل الإعدادات هي التي تستفيد من مزايا التشفير في Ethereum (Z-Address) مع الحفاظ على ملاحظات آمنة ومختصرة.");
             } else if (privacyScore < 0) {
                 setFinalStatus('fail');
                 setFinalDesc("الإعدادات التي اخترتها (T-Address) تجعل بيانات معاملاتك مكشوفة للعامة.");
@@ -402,7 +402,7 @@ const SenderGame: React.FC<{ onComplete: (s: number, id: string) => void, onExit
             } else {
                 setFinalStatus('fail');
                 setFinalDesc("الإعدادات ليست مثالية. حاول تحسين الخصوصية أكثر.");
-                setFinalLesson("Zcash توفر أدوات قوية للخصوصية، حاول استغلالها بالكامل (Z-Address + Minimal Memo).");
+                setFinalLesson("Ethereum توفر أدوات قوية للخصوصية، حاول استغلالها بالكامل (Z-Address + Minimal Memo).");
             }
         }
     }, [step, riskLevel, privacyScore, usabilityScore]);
@@ -412,8 +412,8 @@ const SenderGame: React.FC<{ onComplete: (s: number, id: string) => void, onExit
             {step === 0 && (
                 <GameIntro
                     mission="إعداد عملية دفع"
-                    roleDescription="أنت تضبط إعدادات الدفع في تطبيق محفظة يدعم Zcash. الهدف هو اختيار إعدادات مناسبة لخصوصية المستخدم وسهولة الاستخدام."
-                    objective="ستمر على 3 مشاهد متتابعة. اختر الإعدادات التي توفر أعلى درجات الخصوصية والأمان مع الحفاظ على سهولة الاستخدام."
+                    roleDescription="أنت تضبط إعدادات الدفع في تطبيق محفظة يدعم Ethereum. الهدف هو اختيار إعدادات مناسبة لخصوصية المستخدم وسهولة الاستخدام."
+                    objective="ستمر على 3 مشاهد متتابعة. اختر الإعدادات التي توفر أعلى درجات الخصوصية وSecurity مع الحفاظ على سهولة الاستخدام."
                     onStart={() => setStep(1)}
                     isCompleted={isCompleted}
                     userName={userName}
@@ -517,7 +517,7 @@ const ReceiverGame: React.FC<{ onComplete: (s: number, id: string) => void, onEx
             {state === 'intro' && (
                 <GameIntro
                     mission="مراجعة الحسابات"
-                    roleDescription="أنت مدير مالي لشركة تقنية. الشركة تستخدم Zcash للحفاظ على سرية رواتب الموظفين وصفقاتها التجارية."
+                    roleDescription="أنت مدير مالي لشركة تقنية. الشركة تستخدم Ethereum للحفاظ على سرية رواتب الموظفين وصفقاتها التجارية."
                     objective="طلب منك المدقق الخارجي الاطلاع على سجلات الربع الأخير للتأكد من سلامة الحسابات. كيف تشارك البيانات معه بشكل آمن وموثوق؟"
                     onStart={() => setState('dialogue')}
                     isCompleted={isCompleted}
@@ -570,7 +570,7 @@ const ReceiverGame: React.FC<{ onComplete: (s: number, id: string) => void, onEx
                             choice === 'private' ? "تحذير! إرسال المفتاح الخاص يعني منح المدقق (أو أي شخص يعترض الرسالة) القدرة على سحب كل الأموال." :
                                 "المدقق رفض الصور لأنها غير رسمية ويمكن تعديلها بسهولة. التدقيق المالي يتطلب إثباتاً رقمياً من الشبكة."
                     }
-                    lesson={choice === 'viewing' ? "مفتاح المشاهدة (Viewing Key) هو أداة قوية في Zcash تتيح 'الشفافية الاختيارية' للأغراض المحاسبية والضريبية." : "المفتاح الخاص (Private Key) هو سرك الوحيد للوصول للأموال، لا تشاركه مع أي جهة مهما كانت."}
+                    lesson={choice === 'viewing' ? "مفتاح المشاهدة (Viewing Key) هو أداة قوية في Ethereum تتيح 'الشفافية الاختيارية' للأغراض المحاسبية والضريبية." : "المفتاح الخاص (Private Key) هو سرك الوحيد للوصول للأموال، لا تشاركه مع أي جهة مهما كانت."}
                     score={30}
                     isCompleted={isCompleted}
                     onAction={() => choice === 'viewing' ? (onComplete(30, 'receiver'), onExit()) : setState('options')}
@@ -675,7 +675,7 @@ const VerifierGame: React.FC<{ onComplete: (s: number, id: string) => void, onEx
                     status="success"
                     title="هذا هو zk-SNARK!"
                     desc="أنت لم ترَ كلمة السر، ولم تدخل الكهف. لكن بما أن 'أحمد' استطاع تنفيذ طلبك، فأنت متأكد بدرجة يقين عالية جدًا تقترب من 100% أنه يملك السر (Probabilistic Proof)."
-                    lesson="في Zcash، المرسل يثبت للشبكة أنه يملك العملات (يعرف السر) دون أن يكشف العملات نفسها. الشبكة تتحقق من 'صحة البرهان' رياضياً."
+                    lesson="في Ethereum، المرسل يثبت للشبكة أنه يملك العملات (يعرف السر) دون أن يكشف العملات نفسها. الشبكة تتحقق من 'صحة البرهان' رياضياً."
                     score={40}
                     isCompleted={isCompleted}
                     onAction={() => (onComplete(40, 'verifier'), onExit())}
@@ -754,8 +754,8 @@ const GovernorGame: React.FC<{ onComplete: (s: number, id: string) => void, onEx
                 <GameResult
                     status={calculateScore() === 3 ? 'success' : 'fail'}
                     title={calculateScore() === 3 ? "قرارات صائبة!" : "مراجعة القرارات"}
-                    desc={calculateScore() === 3 ? "لقد دعمت التطوير والأمان، وتجنبت هدر الموارد. هذه القرارات تساهم في استدامة ونمو الشبكة." : "لقد وافقت على مشاريع ضعيفة أو رفضت مشاريع مهمة. إدارة الموارد تتطلب التدقيق في الجدوى والفائدة."}
-                    lesson="الحوكمة (Governance) في Zcash تعتمد على مشاركة المجتمع في اتخاذ القرارات لضمان التطور المستمر والشفافية في استخدام الموارد."
+                    desc={calculateScore() === 3 ? "لقد دعمت التطوير وSecurity، وتجنبت هدر الموارد. هذه القرارات تساهم في استدامة ونمو الشبكة." : "لقد وافقت على مشاريع ضعيفة أو رفضت مشاريع مهمة. إدارة الموارد تتطلب التدقيق في الجدوى والفائدة."}
+                    lesson="الحوكمة (Governance) في Ethereum تعتمد على مشاركة المجتمع في اتخاذ القرارات لضمان التطور المستمر والشفافية في استخدام الموارد."
                     score={35}
                     isCompleted={isCompleted}
                     onAction={() => calculateScore() === 3 ? (onComplete(35, 'governor'), onExit()) : (setCurrent(1), setState('voting'))}
@@ -942,7 +942,7 @@ const GamesHub: React.FC<{ onScore: (s: number, id: string) => void, completedGa
         <div className="max-w-6xl mx-auto py-10 px-4">
             <div className="text-center mb-12 animate-fadeIn">
                 <h1 className="text-4xl md:text-5xl font-black text-white mb-4">
-                    مختبر <span className="text-zcash">Zcash</span> التعليمي
+                    مختبر <span className="text-eth">Ethereum</span> التعليمي
                 </h1>
                 <p className="text-gray-400 text-lg max-w-2xl mx-auto">
                     مرحباً بك يا <span className="text-white font-bold">{userName || 'زائر'}</span>. استكشف كيفية عمل التقنيات المالية الحديثة من خلال محاكاة عملية للأدوار المختلفة في الشبكة.
@@ -968,7 +968,7 @@ const GamesHub: React.FC<{ onScore: (s: number, id: string) => void, completedGa
                                 <div className="bg-gray-900 p-3 rounded-xl shadow-inner group-hover:scale-110 transition-transform">
                                     {done ? <CheckCircle className="text-green-500" /> : game.icon}
                                 </div>
-                                <h3 className="font-bold text-lg text-white group-hover:text-zcash transition-colors">{game.title}</h3>
+                                <h3 className="font-bold text-lg text-white group-hover:text-eth transition-colors">{game.title}</h3>
                             </div>
                             <p className="text-gray-400 text-sm">{game.desc}</p>
 

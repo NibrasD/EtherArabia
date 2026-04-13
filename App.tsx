@@ -158,16 +158,16 @@ const LeaderboardView: React.FC<{ currentUser: User | null }> = ({ currentUser }
                     <div className="p-8 text-center text-gray-500">لا يوجد لاعبين بعد. كن الأول!</div>
                 ) : (
                     leaders.map((entry) => (
-                        <div key={entry.rank} className={`flex items-center justify-between p-4 border-b border-gray-700 ${entry.isUser ? 'bg-zcash/10 border-l-4 border-l-zcash' : ''}`}>
+                        <div key={entry.rank} className={`flex items-center justify-between p-4 border-b border-gray-700 ${entry.isUser ? 'bg-eth/10 border-l-4 border-l-eth' : ''}`}>
                             <div className="flex items-center gap-4">
                                 <div className={`w-8 h-8 flex items-center justify-center font-bold rounded-full ${entry.rank === 1 ? 'bg-yellow-500 text-black' : entry.rank === 2 ? 'bg-gray-400 text-black' : entry.rank === 3 ? 'bg-orange-700 text-white' : 'bg-gray-700 text-gray-400'}`}>
                                     {entry.rank}
                                 </div>
-                                <span className={`font-medium ${entry.isUser ? 'text-zcash font-bold' : 'text-white'}`}>
+                                <span className={`font-medium ${entry.isUser ? 'text-eth font-bold' : 'text-white'}`}>
                                     {entry.name} {entry.isUser && '(أنت)'}
                                 </span>
                             </div>
-                            <div className="font-mono font-bold text-lg text-zcash">{entry.score}</div>
+                            <div className="font-mono font-bold text-lg text-eth">{entry.score}</div>
                         </div>
                     ))
                 )}
@@ -275,8 +275,8 @@ const LoginModal: React.FC<{ isOpen: boolean; onClose: () => void; onLoginSucces
 
                 <div className="p-8 text-center">
                     <div className="mb-6 flex justify-center">
-                        <div className="bg-zcash/20 p-4 rounded-full border border-zcash/30 shadow-lg">
-                            <UserIcon size={40} className="text-zcash" />
+                        <div className="bg-eth/20 p-4 rounded-full border border-eth/30 shadow-lg">
+                            <UserIcon size={40} className="text-eth" />
                         </div>
                     </div>
                     <h2 className="text-2xl font-bold text-white mb-2">
@@ -293,7 +293,7 @@ const LoginModal: React.FC<{ isOpen: boolean; onClose: () => void; onLoginSucces
                         <div className="space-y-4 animate-fadeIn">
                             <button
                                 onClick={handleStartLogin}
-                                className="w-full bg-zcash hover:bg-zcash-dark text-black font-bold py-4 rounded-xl flex items-center justify-center gap-3 transition shadow-lg hover:shadow-zcash/20"
+                                className="w-full bg-eth hover:bg-eth-dark text-black font-bold py-4 rounded-xl flex items-center justify-center gap-3 transition shadow-lg hover:shadow-eth/20"
                             >
                                 <LogIn size={20} />
                                 تسجيل الدخول (لدي حساب)
@@ -321,7 +321,7 @@ const LoginModal: React.FC<{ isOpen: boolean; onClose: () => void; onLoginSucces
                                     required
                                     value={name}
                                     onChange={(e) => setName(e.target.value)}
-                                    className="w-full bg-gray-900 border border-gray-600 rounded-lg p-3 text-white focus:border-zcash focus:outline-none placeholder-gray-600 text-lg"
+                                    className="w-full bg-gray-900 border border-gray-600 rounded-lg p-3 text-white focus:border-eth focus:outline-none placeholder-gray-600 text-lg"
                                     placeholder="مثال: صائد الكتل..."
                                     autoFocus
                                 />
@@ -329,7 +329,7 @@ const LoginModal: React.FC<{ isOpen: boolean; onClose: () => void; onLoginSucces
                                     <Info size={12} /> هذا الاسم سيظهر للجميع في قائمة المتصدرين.
                                 </p>
                             </div>
-                            <button type="submit" className="w-full bg-zcash hover:bg-zcash-dark text-black font-bold py-3 rounded-lg transition shadow-lg hover:shadow-zcash/20">
+                            <button type="submit" className="w-full bg-eth hover:bg-eth-dark text-black font-bold py-3 rounded-lg transition shadow-lg hover:shadow-eth/20">
                                 التالي: اختر طريقة الدخول
                             </button>
                             <button type="button" onClick={() => setStep('select')} className="w-full text-gray-500 text-sm hover:text-white mt-2">رجوع</button>
@@ -345,7 +345,7 @@ const LoginModal: React.FC<{ isOpen: boolean; onClose: () => void; onLoginSucces
                                         <p className="text-xs text-gray-400">الاسم المختار:</p>
                                         <p className="font-bold text-white text-lg">{name}</p>
                                     </div>
-                                    <button onClick={() => setStep('name')} className="text-zcash text-xs hover:text-white px-3 py-1 bg-gray-800 rounded border border-gray-600 transition">تغيير</button>
+                                    <button onClick={() => setStep('name')} className="text-eth text-xs hover:text-white px-3 py-1 bg-gray-800 rounded border border-gray-600 transition">تغيير</button>
                                 </div>
                             )}
 
@@ -382,7 +382,7 @@ const LoginModal: React.FC<{ isOpen: boolean; onClose: () => void; onLoginSucces
                                     required
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
-                                    className="w-full bg-gray-900 border border-gray-600 rounded-lg p-3 text-white focus:border-zcash focus:outline-none"
+                                    className="w-full bg-gray-900 border border-gray-600 rounded-lg p-3 text-white focus:border-eth focus:outline-none"
                                     placeholder="name@example.com"
                                     disabled={loading}
                                     autoFocus
@@ -408,13 +408,13 @@ const LoginModal: React.FC<{ isOpen: boolean; onClose: () => void; onLoginSucces
                                     required
                                     value={otp}
                                     onChange={(e) => setOtp(e.target.value)}
-                                    className="w-full bg-gray-900 border border-gray-600 rounded-lg p-3 text-white text-center tracking-widest text-2xl font-mono focus:border-zcash focus:outline-none"
+                                    className="w-full bg-gray-900 border border-gray-600 rounded-lg p-3 text-white text-center tracking-widest text-2xl font-mono focus:border-eth focus:outline-none"
                                     placeholder="123456"
                                     autoFocus
                                     disabled={loading}
                                 />
                             </div>
-                            <button type="submit" disabled={loading} className="w-full bg-zcash hover:bg-zcash-dark text-black font-bold py-3 rounded-lg flex items-center justify-center gap-2 transition">
+                            <button type="submit" disabled={loading} className="w-full bg-eth hover:bg-eth-dark text-black font-bold py-3 rounded-lg flex items-center justify-center gap-2 transition">
                                 {loading ? <Loader2 className="animate-spin" /> : <>تأكيد الدخول <Check size={18} /></>}
                             </button>
                             <button type="button" onClick={() => setStep('email-otp')} className="w-full text-gray-500 text-sm hover:text-white mt-2">
@@ -431,7 +431,7 @@ const LoginModal: React.FC<{ isOpen: boolean; onClose: () => void; onLoginSucces
 const NavButton: React.FC<{ active: boolean; onClick: () => void; icon: React.ReactNode; text: string }> = ({ active, onClick, icon, text }) => (
     <button
         onClick={onClick}
-        className={`flex items-center gap-2 px-3 py-2 rounded-lg transition-all ${active ? 'bg-zcash text-black font-bold shadow-[0_0_15px_rgba(244,183,40,0.4)]' : 'text-gray-400 hover:text-white hover:bg-gray-800'}`}
+        className={`flex items-center gap-2 px-3 py-2 rounded-lg transition-all ${active ? 'bg-eth text-black font-bold shadow-[0_0_15px_rgba(244,183,40,0.4)]' : 'text-gray-400 hover:text-white hover:bg-gray-800'}`}
     >
         {icon}
         <span className="hidden md:inline">{text}</span>
@@ -507,12 +507,12 @@ const App: React.FC = () => {
     const lessons: Lesson[] = [
         { id: 'l0', title: 'الدرس 1: ما هي تقنية البولوكتشين؟', description: 'مقدمة شاملة عن الكتل، الهاش، وكيفية عمل السلاسل.', difficulty: 'مبتدئ', duration: '7 دقائق', content: (onComplete, isCompleted, userName) => <LessonZero onComplete={onComplete} isCompleted={isCompleted} userName={userName} /> },
         { id: 'l1', title: 'الدرس 2: ما هي إيثيريوم؟', description: 'تعريف شبكة إيثيريوم، العملات، والعقود الذكية.', difficulty: 'مبتدئ', duration: '8 دقائق', content: (onComplete, isCompleted, userName) => <LessonOne onComplete={onComplete} isCompleted={isCompleted} userName={userName} /> },
-        { id: 'l2', title: 'الدرس 3: الخصوصية والأمان', description: 'شرح مبسط لتقنيات حماية البيانات في البلوكشين.', difficulty: 'متوسط', duration: '8 دقائق', content: (onComplete, isCompleted, userName) => <LessonTwo onComplete={onComplete} isCompleted={isCompleted} userName={userName} /> },
+        { id: 'l2', title: 'الدرس 3: الخصوصية وSecurity', description: 'شرح مبسط لتقنيات حماية البيانات في البلوكشين.', difficulty: 'متوسط', duration: '8 دقائق', content: (onComplete, isCompleted, userName) => <LessonTwo onComplete={onComplete} isCompleted={isCompleted} userName={userName} /> },
         { id: 'l3', title: 'الدرس 4: العناوين والمعاملات', description: 'كيفية قراءة العناوين وإرسال المعاملات بأمان.', difficulty: 'مبتدئ', duration: '6 دقائق', content: (onComplete, isCompleted, userName) => <LessonThree onComplete={onComplete} isCompleted={isCompleted} userName={userName} /> },
         { id: 'l4', title: 'الدرس 5: تطور الشبكة', description: 'رحلة إيثيريوم من البداية إلى الانتقال لإثبات الحصة.', difficulty: 'متوسط', duration: '6 دقائق', content: (onComplete, isCompleted, userName) => <LessonFour onComplete={onComplete} isCompleted={isCompleted} userName={userName} /> },
         { id: 'l9', title: 'الدرس 6: دفتر السجلات (Ledger)', description: 'الفرق التقني بين الأنظمة الشفافة والمشفرة.', difficulty: 'متوسط', duration: '5 دقائق', content: (onComplete, isCompleted, userName) => <LessonNine onComplete={onComplete} isCompleted={isCompleted} userName={userName} /> },
         { id: 'l8', title: 'الدرس 7: رحلة المعاملة', description: 'ماذا يحدث خلف الكواليس عند الضغط على إرسال؟', difficulty: 'مبتدئ', duration: '6 دقائق', content: (onComplete, isCompleted, userName) => <LessonEight onComplete={onComplete} isCompleted={isCompleted} userName={userName} /> },
-        { id: 'l5', title: 'الدرس 8: المحفظة والأمان', description: 'أنواع المحافظ، كلمات الاسترجاع، وكيف تحمي أموالك.', difficulty: 'مبتدئ', duration: '7 دقائق', content: (onComplete, isCompleted, userName) => <LessonFive onComplete={onComplete} isCompleted={isCompleted} userName={userName} /> },
+        { id: 'l5', title: 'الدرس 8: المحفظة وSecurity', description: 'أنواع المحافظ، كلمات الاسترجاع، وكيف تحمي أموالك.', difficulty: 'مبتدئ', duration: '7 دقائق', content: (onComplete, isCompleted, userName) => <LessonFive onComplete={onComplete} isCompleted={isCompleted} userName={userName} /> },
         { id: 'l6', title: 'الدرس 9: العقود الذكية', description: 'كيف تبرمج إيثيريوم لتنفيذ المهام تلقائياً.', difficulty: 'متوسط', duration: '6 دقائق', content: (onComplete, isCompleted, userName) => <LessonSix onComplete={onComplete} isCompleted={isCompleted} userName={userName} /> },
         { id: 'l10', title: 'الدرس 10: المحاكاة العملية', description: 'جرب استخدام محفظة إيثيريوم افتراضية بنفسك.', difficulty: 'مبتدئ', duration: '10 دقائق', content: (onComplete, isCompleted, userName) => <LessonTen onComplete={onComplete} isCompleted={isCompleted} userName={userName} /> }
     ];
@@ -560,7 +560,7 @@ const App: React.FC = () => {
                                     <h1 className="text-3xl font-bold text-white mb-2">{activeLesson?.title}</h1>
                                     <p className="text-gray-400 mb-4">{activeLesson?.description}</p>
                                     <div className="flex gap-4 text-sm text-gray-400">
-                                        <span className="bg-gray-800 px-3 py-1 rounded-full text-zcash font-bold border border-gray-700">{activeLesson?.difficulty}</span>
+                                        <span className="bg-gray-800 px-3 py-1 rounded-full text-eth font-bold border border-gray-700">{activeLesson?.difficulty}</span>
                                         <span className="bg-gray-800 px-3 py-1 rounded-full flex items-center gap-1 border border-gray-700">⏱ {activeLesson?.duration}</span>
                                     </div>
                                 </div>
@@ -577,7 +577,7 @@ const App: React.FC = () => {
                 }
                 return (
                     <div className="max-w-4xl mx-auto py-10 relative z-10">
-                        <h2 className="text-3xl font-bold mb-8 text-center flex items-center justify-center gap-2"><BookOpen className="text-zcash" /> المنهج التعليمي</h2>
+                        <h2 className="text-3xl font-bold mb-8 text-center flex items-center justify-center gap-2"><BookOpen className="text-eth" /> المنهج التعليمي</h2>
                         <div className="grid gap-4">
                             {lessons.map((lesson, index) => {
                                 const completed = user?.completedLessons || [];
@@ -592,13 +592,13 @@ const App: React.FC = () => {
                                             }
                                             setActiveLessonId(lesson.id);
                                         }}
-                                        className={`p-6 rounded-xl border transition-all duration-300 flex justify-between items-center group relative overflow-hidden cursor-pointer ${isCompleted ? 'bg-gray-900/40 border-green-900/50 opacity-80 hover:opacity-100 hover:bg-gray-800' : 'bg-gray-800/80 border-gray-700 hover:border-zcash hover:translate-x-1 shadow-lg hover:shadow-zcash/10'} backdrop-blur-sm`}
+                                        className={`p-6 rounded-xl border transition-all duration-300 flex justify-between items-center group relative overflow-hidden cursor-pointer ${isCompleted ? 'bg-gray-900/40 border-green-900/50 opacity-80 hover:opacity-100 hover:bg-gray-800' : 'bg-gray-800/80 border-gray-700 hover:border-eth hover:translate-x-1 shadow-lg hover:shadow-eth/10'} backdrop-blur-sm`}
                                     >
-                                        <div className="absolute top-0 right-0 w-1 h-full bg-gray-700 group-hover:bg-zcash transition-colors"></div>
+                                        <div className="absolute top-0 right-0 w-1 h-full bg-gray-700 group-hover:bg-eth transition-colors"></div>
                                         <div className="pr-4 flex items-start gap-4">
                                             <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-base shrink-0 mt-1 transition-colors ${isCompleted ? 'bg-green-900 text-green-400' : 'bg-gray-700 text-gray-400 group-hover:text-white'}`}>{isCompleted ? <Check size={20} /> : index + 1}</div>
                                             <div>
-                                                <h3 className="text-xl font-bold mb-1 group-hover:text-zcash transition-colors flex items-center gap-2">
+                                                <h3 className="text-xl font-bold mb-1 group-hover:text-eth transition-colors flex items-center gap-2">
                                                     {lesson.title}
                                                     {!user && <Lock size={16} className="text-gray-500 inline-block mr-2" />}
                                                 </h3>
@@ -606,7 +606,7 @@ const App: React.FC = () => {
                                                 <div className="flex gap-3 text-xs text-gray-500 font-mono"><span className="flex items-center gap-1 bg-black/20 px-2 py-0.5 rounded">⏱ {lesson.duration}</span></div>
                                             </div>
                                         </div>
-                                        <div className={`p-3 rounded-full transition transform group-hover:-translate-x-2 ${isCompleted ? 'text-green-500' : 'bg-gray-700/50 group-hover:bg-zcash group-hover:text-black'}`}>
+                                        <div className={`p-3 rounded-full transition transform group-hover:-translate-x-2 ${isCompleted ? 'text-green-500' : 'bg-gray-700/50 group-hover:bg-eth group-hover:text-black'}`}>
                                             {isCompleted ? <CheckCircle size={24} /> : !user ? <Lock size={20} className="text-gray-400" /> : <Lock size={20} className="text-gray-500 group-hover:text-black" />}
                                         </div>
                                     </div>
@@ -654,7 +654,7 @@ const App: React.FC = () => {
                         </div>
                         <div className="flex space-x-1 space-x-reverse md:space-x-4 md:space-x-reverse items-center">
                             <NavButton active={currentView === View.LESSON} onClick={() => { setCurrentView(View.LESSON); setActiveLessonId(null); }} icon={<BookOpen size={18} />} text="الدروس" />
-                            <NavButton active={currentView === View.SECURITY} onClick={() => setCurrentView(View.SECURITY)} icon={<Shield size={18} />} text="الأمان" />
+                            <NavButton active={currentView === View.SECURITY} onClick={() => setCurrentView(View.SECURITY)} icon={<Shield size={18} />} text="Security" />
                             <NavButton active={currentView === View.GAME} onClick={() => setCurrentView(View.GAME)} icon={<Gamepad2 size={18} />} text="الألعاب" />
                             <NavButton active={currentView === View.DASHBOARD} onClick={() => setCurrentView(View.DASHBOARD)} icon={<UserIcon size={18} />} text="حسابي" />
                             {user ? (

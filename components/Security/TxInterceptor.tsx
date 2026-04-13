@@ -124,7 +124,7 @@ export default function TxInterceptor() {
       {}
       <div className="bg-slate-800/30 rounded-2xl border border-slate-700/50 p-6 min-h-[600px] flex flex-col">
         <h2 className="text-xl font-bold text-white mb-6 flex items-center gap-2 justify-end text-right font-sans" dir="rtl">
-          نتيجة تحليل الأمان
+          نتيجة تحليل Security
           <ShieldCheck className="w-5 h-5 text-slate-400" />
         </h2>
 

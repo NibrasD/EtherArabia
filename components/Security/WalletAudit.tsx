@@ -130,7 +130,7 @@ export default function WalletAudit() {
                 </div>
               </div>
               <div className="w-full">
-                <h3 className="text-xl font-bold text-white mb-1">درجة الأمان</h3>
+                <h3 className="text-xl font-bold text-white mb-1">درجة Security</h3>
                 <p className="text-sm text-slate-400 mb-4">
                   {report.score < 50 ? 'محفظتك في خطر كبير' :
                    report.score < 80 ? 'تحتاج إلى بعض الانتباه' : 'محفظتك آمنة'}

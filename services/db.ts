@@ -6,8 +6,8 @@ const SUPABASE_URL = 'https://zovdjndjquhqsilvoltt.supabase.co';
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpvdmRqbmRqcXVocXNpbHZvbHR0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU2ODY0OTMsImV4cCI6MjA4MTI2MjQ5M30.z3kMGePOuUyYZhbyQBaWn9pU2MVsxfErkJ9rw0HeWDk';
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
-const CURRENT_USER_KEY = 'zcash_current_user_local_cache';
-const PENDING_NAME_KEY = 'zcash_pending_auth_name';
+const CURRENT_USER_KEY = 'eth_current_user_local_cache';
+const PENDING_NAME_KEY = 'eth_pending_auth_name';
 
 // Helper to sanitize data
 const sanitizeUser = (u: any): User => ({
